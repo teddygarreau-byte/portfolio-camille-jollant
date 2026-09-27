@@ -199,7 +199,9 @@ h1,h2,h3,h4{ font-family: var(--font-body); font-weight: 700; margin:0; text-wra
 .site-header.scrolled::before{ opacity:1; }
 
 .logo{
-  font-weight: 700; font-size: 1.25rem; letter-spacing: .1em; line-height:1;
+  /* mêmes initiales que le nom du hero : même police d'apparat */
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 1.55rem; letter-spacing: .12em; line-height:1;
   color: #FFFFFF; transition: color var(--dur-fast) var(--ease);
 }
 .site-header.scrolled .logo{ color: var(--color-ink); }
