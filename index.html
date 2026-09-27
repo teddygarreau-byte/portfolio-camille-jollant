@@ -3,16 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Camille Jollant — Marketing Digital</title>
-<meta name="description" content="Portfolio de Camille Jollant, chargée marketing digital — réseaux sociaux, CMS, emailing, création de contenus.">
+<title>Camille Jollant, chargée marketing digital</title>
+<meta name="description" content="Portfolio de Camille Jollant, chargée marketing digital : réseaux sociaux, CMS, emailing, création de contenus.">
+
+<!-- Aperçu affiché quand le lien est partagé (LinkedIn, mail, messageries).
+     og:image doit être une URL absolue : à ajuster si le domaine change. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Camille Jollant">
+<meta property="og:title" content="Camille Jollant, chargée marketing digital">
+<meta property="og:description" content="Portfolio 2026 : réseaux sociaux, CMS, emailing, campagnes SEA et création de contenus.">
+<meta property="og:url" content="https://teddygarreau.github.io/portfolio-camille-jollant/">
+<meta property="og:image" content="https://teddygarreau.github.io/portfolio-camille-jollant/assets/img/og-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Camille Jollant, chargée marketing digital, portfolio 2026">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Camille Jollant, chargée marketing digital">
+<meta name="twitter:description" content="Portfolio 2026 : réseaux sociaux, CMS, emailing, campagnes SEA et création de contenus.">
+<meta name="twitter:image" content="https://teddygarreau.github.io/portfolio-camille-jollant/assets/img/og-preview.jpg">
+<meta name="theme-color" content="#FBF7F2">
+
+<!-- Site non référencé : visible par qui a le lien, absent des moteurs
+     de recherche. Retirer cette ligne ET modifier robots.txt pour
+     le rendre trouvable. -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22serif%22>C</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=38">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22 font-family=%22sans-serif%22 font-weight=%22bold%22>C</text></svg>">
 </head>
 <body>
 
+<svg class="icon-defs" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="ico-social" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="12.5" rx="4"/>
+      <path d="M9 16.5 7.2 20.5 13 16.5"/>
+    </symbol>
+    <symbol id="ico-cms" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="16" rx="3.5"/>
+      <path d="M3 9h18"/>
+      <path d="M6.3 6.5h.01M9 6.5h.01"/>
+    </symbol>
+    <symbol id="ico-mail" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" rx="3.5"/>
+      <path d="M4.5 8.5 12 13.5l7.5-5"/>
+    </symbol>
+    <symbol id="ico-design" viewBox="0 0 24 24">
+      <path d="M12 3.2 2.8 8 12 12.8 21.2 8 12 3.2Z"/>
+      <path d="M2.8 13 12 17.8 21.2 13"/>
+    </symbol>
+    <symbol id="ico-board" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="16" rx="3.5"/>
+      <path d="M9 4.5v15M15 4.5v15"/>
+    </symbol>
+    <symbol id="ico-school" viewBox="0 0 24 24">
+      <path d="M12 3.6 2.5 8.4 12 13.2l9.5-4.8L12 3.6Z"/>
+      <path d="M6.4 10.8v4.4c0 1.7 2.5 3 5.6 3s5.6-1.3 5.6-3v-4.4"/>
+      <path d="M21.5 8.4v5"/>
+    </symbol>
+    <symbol id="ico-search" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="6.5"/>
+      <path d="m16 16 4.5 4.5"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="bg-blobs" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
@@ -34,86 +94,184 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
+    <div class="hero-bg" role="img" aria-label="Portrait de Camille Jollant"></div>
+    <div class="hero-scrim"></div>
+    <p class="hero-corner">Portfolio <span>2026</span></p>
     <div class="hero-inner">
-      <p class="hero-eyebrow reveal">Portfolio — 2026</p>
-      <h1 class="hero-title">
-        <span class="line reveal">Camille</span>
-        <span class="line reveal" data-delay="1">Jollant</span>
+      <h1 class="hero-name">
+        <span class="line">Camille</span>
+        <span class="line">Jollant</span>
       </h1>
-      <p class="hero-role reveal" data-delay="2">Chargée marketing digital <span class="dot">·</span> Réseaux sociaux, CMS &amp; emailing</p>
-      <div class="hero-actions reveal" data-delay="3">
-        <a href="#projets" class="btn btn-primary">Voir les projets</a>
-        <a href="#contact" class="btn btn-ghost">Me contacter</a>
-      </div>
+      <p class="hero-sub">Mon portfolio</p>
     </div>
     <a href="#profil" class="scroll-cue" aria-label="Défiler vers le bas">
       <span></span>
     </a>
   </section>
 
-  <!-- PROFIL -->
+  <!-- 01 PROFIL -->
   <section class="section profil" id="profil">
+   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">01</span>
-      <h2>Profil</h2>
+      <h2>Profil et compétences</h2>
     </div>
     <div class="profil-grid">
-      <div class="profil-photo reveal">
-        <img src="assets/img/camille-portrait.jpg" alt="Portrait de Camille Jollant" loading="lazy" width="1000" height="1500">
+      <div class="profil-side reveal">
+        <div class="profil-photo">
+          <img src="assets/img/camille-portrait.jpg" alt="Portrait de Camille Jollant" loading="lazy" width="1000" height="666">
+        </div>
+        <div class="card profil-langues">
+          <h3 class="block-label">Langues</h3>
+          <ul class="lang-list">
+            <li>
+              <span class="lang-name">Français</span>
+              <span class="lang-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              <span class="lang-level">Langue maternelle</span>
+            </li>
+            <li>
+              <span class="lang-name">Anglais</span>
+              <span class="lang-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              <span class="lang-level">B2</span>
+            </li>
+            <li>
+              <span class="lang-name">Espagnol</span>
+              <span class="lang-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+              <span class="lang-level">B1</span>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="profil-text reveal" data-delay="1">
-        <p class="lede">Jeune diplômée d'un <strong>Master Marketing Digital</strong> à l'IAE La Rochelle, opérationnelle sur toute la chaîne digitale&nbsp;: gestion des réseaux sociaux, CMS, emailing et suivi des KPI.</p>
-        <p>Autonome et organisée, je suis motivée à l'idée de mettre mes compétences au service d'une nouvelle opportunité dans le marketing digital.</p>
+        <p class="lede">Jeune diplômée d'un <strong>Master Marketing Digital</strong> à l'IAE La Rochelle, je suis opérationnelle sur toute la chaîne digitale&nbsp;: réseaux sociaux, CMS, emailing, référencement payant et suivi des performances.</p>
 
-        <div class="skills-block">
-          <h3>Langues</h3>
-          <ul class="tag-list">
-            <li>Français <span>langue maternelle</span></li>
-            <li>Anglais <span>B2</span></li>
-            <li>Espagnol <span>B1</span></li>
+        <p>Mon parcours m'a fait passer par des structures très différentes. Une PME industrielle, ATS-ATPE, où j'ai refondu l'identité visuelle et animé la page LinkedIn. Une jeune entreprise dédiée à l'accessibilité, Handivisible, où je pilotais la ligne éditoriale des réseaux sociaux et le suivi des performances. Une marque parisienne, Caulaincourt, où j'ai développé un projet de seconde main. Et aujourd'hui Léa Nature, groupe spécialisé dans les produits biologiques, où je conçois les supports de formation des marques Eau Thermale Jonzac, Natessence et Bo-Ho.</p>
+
+        <p>Cette variété m'a appris à m'adapter vite au ton et aux enjeux de chaque marque. J'aime autant la partie stratégique, construire une ligne éditoriale et analyser ce qui fonctionne, que l'exécution&nbsp;: écrire, maquetter, monter une vidéo, mettre en ligne. C'est ce qui me permet de prendre un sujet de bout en bout.</p>
+
+        <div class="profil-focus">
+          <h3 class="block-label">Ce que je peux prendre en charge</h3>
+          <ul class="focus-list">
+            <li>Gestion et animation des réseaux sociaux</li>
+            <li>Création et mise à jour de sites WordPress</li>
+            <li>Campagnes SEA sur Google Ads</li>
+            <li>Conception et diffusion de newsletters</li>
+            <li>Création de contenus print et digitaux</li>
+            <li>Montage vidéo</li>
+            <li>Communication d'événement</li>
+            <li>Suivi des KPI et analyse des performances</li>
           </ul>
         </div>
 
-        <div class="skills-block">
-          <h3>Compétences numériques</h3>
-          <ul class="tag-list tools">
-            <li>Meta Business Suite</li>
-            <li>WordPress</li>
-            <li>Brevo</li>
-            <li>Google Ads</li>
-            <li>Canva</li>
-            <li>CapCut</li>
-            <li>Adobe InDesign</li>
-            <li>Photoshop</li>
-            <li>Premiere Pro</li>
-            <li>Trello</li>
-            <li>Microsoft Office</li>
-          </ul>
-        </div>
+        <p class="profil-seeking">Recherche un CDI ou un CDD en marketing digital</p>
+      </div>
+    </div>
 
-        <div class="formation-block">
-          <h3>Formation</h3>
-          <div class="formation-item">
-            <span class="formation-year">2024–2026</span>
-            <div>
-              <p class="formation-title">Master Marketing Digital</p>
-              <p class="formation-sub">IAE La Rochelle</p>
-            </div>
+    <div class="skills-row">
+     <div class="card skills-card reveal">
+      <h3 class="block-label">Outils numériques</h3>
+
+      <div class="skill-group">
+        <p class="skill-cat">
+          Réseaux sociaux
+        </p>
+        <ul class="tool-list">
+          <li><span class="tool-tile"><img src="assets/logos/meta.png" alt="" loading="lazy"></span><span class="tool-name">Meta Business Suite</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <p class="skill-cat">
+          Web et CMS
+        </p>
+        <ul class="tool-list">
+          <li><span class="tool-tile"><img src="assets/logos/wordpress.png" alt="" loading="lazy"></span><span class="tool-name">WordPress</span></li>
+          <li><span class="tool-tile"><img src="assets/logos/google-ads.png" alt="" loading="lazy"></span><span class="tool-name">Google Ads</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <p class="skill-cat">
+          Emailing
+        </p>
+        <ul class="tool-list">
+          <li><span class="tool-tile"><img src="assets/logos/brevo.png" alt="" loading="lazy"></span><span class="tool-name">Brevo</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <p class="skill-cat">
+          Création
+        </p>
+        <ul class="tool-list">
+          <li><span class="tool-tile"><img src="assets/logos/canva.png" alt="" loading="lazy"></span><span class="tool-name">Canva</span></li>
+          <li><span class="tool-tile"><img src="assets/logos/indesign.png" alt="" loading="lazy"></span><span class="tool-name">InDesign</span></li>
+          <li><span class="tool-tile"><img src="assets/logos/photoshop.png" alt="" loading="lazy"></span><span class="tool-name">Photoshop</span></li>
+          <li><span class="tool-tile"><img src="assets/logos/capcut.jpg" alt="" loading="lazy"></span><span class="tool-name">CapCut</span></li>
+          <li><span class="tool-tile"><img src="assets/logos/premiere.png" alt="" loading="lazy"></span><span class="tool-name">Premiere Pro</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <p class="skill-cat">
+          Intelligence artificielle
+        </p>
+        <ul class="tool-list">
+          <li><span class="tool-tile"><img src="assets/logos/claude.png" alt="" loading="lazy"></span><span class="tool-name">Claude</span></li>
+          <li><span class="tool-tile"><img src="assets/logos/chatgpt.png" alt="" loading="lazy"></span><span class="tool-name">ChatGPT</span></li>
+          <li><span class="tool-tile"><img src="assets/logos/perplexity.png" alt="" loading="lazy"></span><span class="tool-name">Perplexity</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <p class="skill-cat">
+          Gestion de projet
+        </p>
+        <ul class="tool-list">
+          <li><span class="tool-tile"><img src="assets/logos/trello.png" alt="" loading="lazy"></span><span class="tool-name">Trello</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <p class="skill-cat">
+          Bureautique
+        </p>
+        <ul class="tool-list">
+          <li><span class="tool-tile"><img src="assets/logos/office.jpg" alt="" loading="lazy"></span><span class="tool-name">Microsoft Office</span></li>
+        </ul>
+      </div>
+     </div>
+
+     <div class="formation-col">
+      <h3 class="block-label reveal">Formation</h3>
+      <div class="formation-grid">
+        <div class="card formation-item reveal">
+          <span class="formation-logo"><img src="assets/logos/iae-la-rochelle.png" alt="Logo de l'IAE La Rochelle" loading="lazy"></span>
+          <div>
+            <p class="formation-title">Master Marketing Digital</p>
+            <p class="formation-sub">IAE La Rochelle</p>
+            <p class="formation-year">2024 à 2026</p>
           </div>
-          <div class="formation-item">
-            <span class="formation-year">2021–2024</span>
-            <div>
-              <p class="formation-title">BUT Techniques de Commercialisation</p>
-              <p class="formation-sub">IUT de Troyes — Marketing digital, E-business &amp; Entrepreneuriat</p>
-            </div>
+        </div>
+        <div class="card formation-item reveal" data-delay="1">
+          <span class="formation-logo"><img src="assets/logos/iut-troyes.jpg" alt="Logo de l'IUT de Troyes" loading="lazy"></span>
+          <div>
+            <p class="formation-title">BUT Techniques de Commercialisation</p>
+            <p class="formation-sub">IUT de Troyes</p>
+            <p class="formation-detail">Parcours marketing digital, e-business et entrepreneuriat</p>
+            <p class="formation-year">2021 à 2024</p>
           </div>
         </div>
       </div>
+     </div>
     </div>
+   </div>
   </section>
 
-  <!-- PARCOURS -->
+
+  <!-- 03 PARCOURS -->
   <section class="section parcours" id="parcours">
+   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">02</span>
       <h2>Parcours</h2>
@@ -122,174 +280,286 @@
     <div class="timeline">
 
       <article class="timeline-item reveal">
-        <div class="timeline-dot" aria-hidden="true"></div>
-        <div class="timeline-date">Sept. 2025 – Août 2026</div>
         <div class="timeline-content">
-          <h3>Léa Nature — Périgny</h3>
-          <p class="timeline-role">Alternante</p>
-          <p>Conception et mise à jour de supports de formation pour les équipes internes (marque Eau Thermale Jonzac).</p>
-          <a href="#jonzac" class="timeline-link" data-scroll-to="jonzac">Voir le projet →</a>
+          <p class="timeline-date">Sept. 2025 à août 2026</p>
+          <h4>Léa Nature</h4>
+          <p class="timeline-place">Périgny · Alternante</p>
+          <p>Conception et mise à jour de supports de formation pour les équipes internes, sur les marques Eau Thermale Jonzac, Natessence et Bo-Ho.</p>
+          <button class="timeline-toggle" aria-expanded="false" aria-controls="panel-jonzac">
+            <span class="toggle-label">Voir le projet</span>
+          </button>
+          <div class="timeline-panel" id="panel-jonzac">
+           <div class="timeline-panel-inner">
+      <div class="project-media gallery-wrap">
+                <div class="gallery">
+                  <button type="button" class="slide"><img src="assets/img/jonzac-outil-1.jpg" alt="Support de formation Sublimactive : présentation des actifs de la gamme" loading="lazy"></button>
+                  <button type="button" class="slide"><img src="assets/img/jonzac-outil-2.jpg" alt="Support de formation Sublimactive : argumentaire du sérum pro-collagène" loading="lazy"></button>
+                  <button type="button" class="slide"><img src="assets/img/jonzac-outil-3.jpg" alt="Support de formation Sublimactive : résultats des études cliniques" loading="lazy"></button>
+                </div>
+                <button class="gallery-nav prev" aria-label="Visuel précédent">‹</button>
+                <button class="gallery-nav next" aria-label="Visuel suivant">›</button>
+                <button class="gallery-play" aria-label="Mettre le défilement en pause"></button>
+                <div class="gallery-dots" aria-label="Choisir un visuel"></div>
+              </div>
+            <div class="panel-body">
+              <span class="project-tag">Support de formation</span>
+              <h4>Outil de formation Eau Thermale Jonzac</h4>
+              <p>En alternance chez Léa Nature, je conçois les supports de formation destinés aux équipes et aux partenaires, pour trois marques du groupe&nbsp;: Eau Thermale Jonzac, Natessence et Bo-Ho.</p>
+              <p>Celui-ci présente la gamme Sublimactive&nbsp;: rôle de chaque actif, résultats des études cliniques, bénéfices et argumentaire de vente. L'enjeu était de rendre une information scientifique dense immédiatement lisible, avec une navigation claire d'une section à l'autre, des chiffres clés mis en avant et des visuels qui soutiennent la démonstration plutôt que de la surcharger.</p>
+              <dl class="project-credits">
+                <div><dt>Rôle</dt><dd>Conception et mise en page</dd></div>
+                <div><dt>Outils</dt><dd><ul class="tool-list tool-list-sm">
+                  <li><span class="tool-tile"><img src="assets/logos/office.jpg" alt="" loading="lazy"></span><span class="tool-name">PowerPoint</span></li>
+                  <li><span class="tool-tile"><img src="assets/logos/photoshop.png" alt="" loading="lazy"></span><span class="tool-name">Photoshop</span></li>
+                </ul></dd></div>
+                <div><dt>Livrables</dt><dd>Supports de formation interactifs</dd></div>
+              </dl>
+            </div>
+           </div>
+          </div>
         </div>
       </article>
 
       <article class="timeline-item reveal">
-        <div class="timeline-dot" aria-hidden="true"></div>
-        <div class="timeline-date">Avril – Juillet 2025</div>
         <div class="timeline-content">
-          <h3>ATS-ATPE — Noisy-le-Sec</h3>
-          <p class="timeline-role">Stagiaire</p>
+          <p class="timeline-date">Avril à juillet 2025</p>
+          <h4>ATS-ATPE</h4>
+          <p class="timeline-place">Noisy-le-Sec · Stagiaire</p>
           <p>Création de contenus digitaux, animation de la page LinkedIn, montage vidéo, refonte de la plaquette commerciale et création d'un nouveau logo.</p>
-          <a href="#ats" class="timeline-link" data-scroll-to="ats">Voir le projet →</a>
+          <button class="timeline-toggle" aria-expanded="false" aria-controls="panel-ats">
+            <span class="toggle-label">Voir le projet</span>
+          </button>
+          <div class="timeline-panel" id="panel-ats">
+           <div class="timeline-panel-inner">
+      <div class="project-media gallery-wrap">
+                <div class="gallery">
+                  <button type="button" class="slide"><img src="assets/img/ats-logo.png" alt="Nouveau logo ATS, ascenseurs sur mesure" loading="lazy"></button>
+                  <button type="button" class="slide"><img src="assets/img/ats-brandboard.png" alt="Brand board ATS : déclinaisons du logo, cartes de visite et page LinkedIn" loading="lazy"></button>
+                </div>
+                <button class="gallery-nav prev" aria-label="Visuel précédent">‹</button>
+                <button class="gallery-nav next" aria-label="Visuel suivant">›</button>
+                <button class="gallery-play" aria-label="Mettre le défilement en pause"></button>
+                <div class="gallery-dots" aria-label="Choisir un visuel"></div>
+              </div>
+            <div class="panel-body">
+              <span class="project-tag">Identité de marque</span>
+              <h4>Refonte de l'identité visuelle ATS</h4>
+              <p>Pendant mon stage chez ATS-ATPE, spécialiste de l'ascenseur sur mesure installé dans des immeubles existants, j'ai mené la refonte complète de l'identité visuelle de l'entreprise.</p>
+              <p>Le nouveau logo transforme le A en flèche ascendante, une référence directe au métier, dans un bleu et un rouge assumés. Je l'ai ensuite décliné sur l'ensemble des supports&nbsp;: cartes de visite, refonte de la plaquette commerciale, bannières et visuels pour la page LinkedIn de l'entreprise, que j'animais également au quotidien.</p>
+              <dl class="project-credits">
+                <div><dt>Rôle</dt><dd>Identité visuelle et contenus</dd></div>
+                <div><dt>Outils</dt><dd><ul class="tool-list tool-list-sm">
+                  <li><span class="tool-tile"><img src="assets/logos/photoshop.png" alt="" loading="lazy"></span><span class="tool-name">Photoshop</span></li>
+                  <li><span class="tool-tile"><img src="assets/logos/indesign.png" alt="" loading="lazy"></span><span class="tool-name">InDesign</span></li>
+                  <li><span class="tool-tile"><img src="assets/logos/canva.png" alt="" loading="lazy"></span><span class="tool-name">Canva</span></li>
+                </ul></dd></div>
+                <div><dt>Livrables</dt><dd>Logo, déclinaisons, plaquette, visuels LinkedIn</dd></div>
+              </dl>
+            </div>
+           </div>
+          </div>
         </div>
       </article>
 
       <article class="timeline-item reveal">
-        <div class="timeline-dot" aria-hidden="true"></div>
-        <div class="timeline-date">Février – Mai 2024</div>
         <div class="timeline-content">
-          <h3>Caulaincourt Paris — Paris</h3>
-          <p class="timeline-role">Stagiaire</p>
+          <p class="timeline-date">Février à mai 2024</p>
+          <h4>Caulaincourt Paris</h4>
+          <p class="timeline-place">Paris · Stagiaire</p>
           <p>Collecte de données, développement et gestion d'un nouveau projet dédié à la seconde main.</p>
         </div>
       </article>
 
       <article class="timeline-item reveal">
-        <div class="timeline-dot" aria-hidden="true"></div>
-        <div class="timeline-date">Avril – Juin 2023</div>
         <div class="timeline-content">
-          <h3>Handivisible — Troyes</h3>
-          <p class="timeline-role">Stagiaire</p>
+          <p class="timeline-date">Avril à juin 2023</p>
+          <h4>Handivisible</h4>
+          <p class="timeline-place">Troyes · Stagiaire</p>
           <p>Gestion stratégique des réseaux sociaux, création et planification de contenus, analyse des performances, veille concurrentielle et prospection.</p>
-          <a href="#handivisible" class="timeline-link" data-scroll-to="handivisible">Voir le projet →</a>
+          <button class="timeline-toggle" aria-expanded="false" aria-controls="panel-handivisible">
+            <span class="toggle-label">Voir le projet</span>
+          </button>
+          <div class="timeline-panel" id="panel-handivisible">
+           <div class="timeline-panel-inner">
+      <div class="project-media">
+                <img src="assets/img/handivisible-flyer.jpg" alt="Flyer de communication Handivisible et BabyVisible" loading="lazy" width="707" height="1000">
+              </div>
+            <div class="panel-body">
+              <span class="project-tag">Communication</span>
+              <h4>Handivisible et BabyVisible</h4>
+              <p>Handivisible permet aux personnes en situation de handicap et aux femmes enceintes de signaler leur présence dans un établissement pour bénéficier d'un passage prioritaire, sans avoir à se justifier.</p>
+              <p>J'ai conçu ce flyer destiné aux commerces partenaires, qui explique le dispositif en trois étapes. En parallèle, je gérais les réseaux sociaux de la marque&nbsp;: ligne éditoriale, planification, création de contenus, suivi des performances et veille concurrentielle.</p>
+              <dl class="project-credits">
+                <div><dt>Rôle</dt><dd>Communication et réseaux sociaux</dd></div>
+                <div><dt>Outils</dt><dd><ul class="tool-list tool-list-sm">
+                  <li><span class="tool-tile"><img src="assets/logos/canva.png" alt="" loading="lazy"></span><span class="tool-name">Canva</span></li>
+                  <li><span class="tool-tile"><img src="assets/logos/meta.png" alt="" loading="lazy"></span><span class="tool-name">Meta Business Suite</span></li>
+                </ul></dd></div>
+                <div><dt>Livrables</dt><dd>Flyer partenaires, contenus social media</dd></div>
+              </dl>
+            </div>
+           </div>
+          </div>
         </div>
       </article>
 
     </div>
+
+   </div>
   </section>
 
-  <!-- PROJETS -->
+  <!-- 04 PROJETS -->
   <section class="section projets" id="projets">
+   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">03</span>
-      <h2>Projets</h2>
+      <h2>Projets d'école</h2>
     </div>
+    <div class="project-grid">
 
-    <div class="project-list">
-
-      <article class="project reveal" id="ats">
-        <div class="project-media">
-          <img src="assets/img/ats-brandboard.png" alt="Brand board du nouveau logo ATS, déclinaisons couleur" loading="lazy" width="933" height="1400">
+      <article class="project-card wide-card reveal" id="ia-na">
+        <div class="project-media iana-media">
+          <img src="assets/img/iana-keynoter.jpg" alt="Post LinkedIn annonçant le keynoter Jean-Philippe Fouquet" loading="lazy" width="880" height="1100">
+          <img src="assets/img/iana-billetterie.jpg" alt="Post LinkedIn de relance billetterie, composition de tickets d'entrée" loading="lazy" width="880" height="1100">
+          <video controls preload="none" playsinline poster="assets/img/iana-billetterie-poster.jpg">
+            <source src="assets/video/iana-billetterie.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="project-info">
-          <span class="project-tag">Identité de marque · Stage ATS-ATPE</span>
-          <h3>Refonte de l'identité visuelle ATS</h3>
-          <p>Création d'un nouveau logo pour ATS (Ascenseurs sur mesure) et déclinaison sur l'ensemble des supports&nbsp;: cartes de visite, réseaux sociaux, page LinkedIn de l'entreprise.</p>
-          <ul class="project-meta">
-            <li>Logo</li><li>Brand board</li><li>LinkedIn</li>
-          </ul>
+          <div class="project-brand">
+            <img class="project-brand-logo" src="assets/img/iana-logo.png" alt="Logo IA-NA" loading="lazy" width="400" height="400">
+            <div>
+              <span class="project-tag">Communication d'événement</span>
+              <h4>IA-NA, «&nbsp;Adopte ton IA&nbsp;»</h4>
+            </div>
+          </div>
+          <p>Communication complète d'un événement consacré à l'intelligence artificielle au service des entreprises de Nouvelle-Aquitaine, le 3 juin 2026 au Centre de Congrès Georges Pernoud de La Rochelle.</p>
+          <p>Nous avons décliné l'identité de l'événement sur deux terrains. Le digital d'abord, avec une série de posts LinkedIn rythmant la campagne, de l'annonce des intervenants à la relance billetterie. Le physique ensuite, avec l'affiche et le kakémono présents sur place. Une seule charte, des formats pensés pour chaque support.</p>
+          <p>La vidéo d'ouverture de la billetterie reprend l'affiche imprimée pour annoncer la mise en vente sur les réseaux, et fait le lien entre les deux univers.</p>
+          <p class="project-team">Projet mené en équipe</p>
+          <div class="project-tools">
+            <ul class="tool-list tool-list-sm">
+              <li><span class="tool-tile"><img src="assets/logos/canva.png" alt="" loading="lazy"></span><span class="tool-name">Canva</span></li>
+              <li><span class="tool-tile"><img src="assets/logos/photoshop.png" alt="" loading="lazy"></span><span class="tool-name">Photoshop</span></li>
+            </ul>
+          </div>
         </div>
       </article>
 
-      <article class="project reverse reveal" id="jonzac">
-        <div class="project-media">
-          <img src="assets/img/jonzac-outil-2.jpg" alt="Support de formation Sublimactive, Eau Thermale Jonzac" loading="lazy" width="1400" height="787">
+      <article class="project-card croustiche-card reveal" id="croustiche">
+        <div class="project-media croustiche-videos">
+          <video controls preload="none" playsinline poster="assets/img/croustiche-tenders-poster.jpg">
+            <source src="assets/video/croustiche-tenders.mp4" type="video/mp4">
+          </video>
+          <video controls preload="none" playsinline poster="assets/img/croustiche-feuillete-poster.jpg">
+            <source src="assets/video/croustiche-feuillete.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="project-info">
-          <span class="project-tag">Support de formation · Alternance Léa Nature</span>
-          <h3>Outil de formation — Eau Thermale Jonzac</h3>
-          <p>Conception d'un support de formation interne pour présenter la gamme Sublimactive (actifs, résultats cliniques, argumentaire produit) aux équipes.</p>
-          <ul class="project-meta">
-            <li>Formation</li><li>Argumentaire produit</li><li>PowerPoint</li>
-          </ul>
+          <div class="project-brand">
+            <img class="project-brand-logo" src="assets/img/croustiche-logo.jpg" alt="Logo de Croustiche, un air fryer en toque de cuisinier" loading="lazy" width="400" height="400">
+            <div>
+              <span class="project-tag">Réseaux sociaux</span>
+              <h4>Croustiche, un compte TikTok cuisine</h4>
+            </div>
+          </div>
+          <p>Compte TikTok créé de toutes pièces autour d'une idée simple&nbsp;: des recettes rapides à l'air fryer. Nom, mascotte, ton, format des vidéos et ligne éditoriale, nous avons tout défini en amont avant la première publication.</p>
+          <p>Les recettes sont tournées et montées au format vertical, avec le rythme court et les textes incrustés attendus sur la plateforme. Chaque vidéo suit la même trame, de la préparation au résultat final, pour que le compte soit identifiable dès les premières secondes.</p>
+          <p class="project-link-line">
+            <a href="https://www.tiktok.com/@croustiche" target="_blank" rel="noopener">Voir le compte @croustiche sur TikTok</a>
+          </p>
+          <p class="project-team">Projet mené en équipe</p>
+          <div class="project-tools">
+            <ul class="tool-list tool-list-sm">
+              <li><span class="tool-tile"><img src="assets/logos/capcut.jpg" alt="" loading="lazy"></span><span class="tool-name">CapCut</span></li>
+              <li><span class="tool-tile"><img src="assets/logos/canva.png" alt="" loading="lazy"></span><span class="tool-name">Canva</span></li>
+            </ul>
+          </div>
         </div>
       </article>
 
-      <article class="project reveal" id="astria">
+      <article class="project-card video-card reveal" id="la-rochelle">
         <div class="project-media">
-          <img src="assets/img/astria-home.jpg" alt="Page d'accueil du site e-commerce Astria" loading="lazy" width="1200" height="770">
+          <video controls preload="none" playsinline poster="assets/img/la-rochelle-poster.jpg"
+                 width="540" height="960">
+            <source src="assets/video/la-rochelle.mp4" type="video/mp4">
+            Votre navigateur ne peut pas lire cette vidéo.
+          </video>
         </div>
         <div class="project-info">
-          <span class="project-tag">Site e-commerce · Projet école</span>
-          <h3>Astria — Bijoux</h3>
-          <p>Création d'un site vitrine et e-commerce sous WordPress pour une marque de bijoux fictive&nbsp;: page d'accueil, fiches produits et parcours d'achat.</p>
-          <ul class="project-meta">
-            <li>WordPress</li><li>UI Design</li><li>E-commerce</li>
-          </ul>
+          <span class="project-tag">Vidéo</span>
+          <h4>La Rochelle, film de promotion</h4>
+          <p>Vidéo réalisée de bout en bout dans le cadre du Master&nbsp;: écriture du déroulé et repérage des plans, tournage sur place, puis montage au format vertical avec une contrainte de durée imposée.</p>
+          <p>Le port, les quais et les rues du centre sont enchaînés au rythme de la musique pour donner envie de venir, dans les codes des formats courts des réseaux sociaux.</p>
+          <p class="project-team">Projet mené en équipe</p>
+          <div class="project-tools">
+            <ul class="tool-list tool-list-sm">
+              <li><span class="tool-tile"><img src="assets/logos/premiere.png" alt="" loading="lazy"></span><span class="tool-name">Adobe Premiere Pro</span></li>
+            </ul>
+          </div>
         </div>
       </article>
 
-      <article class="project reverse reveal" id="fiere">
-        <div class="project-media">
-          <img src="assets/img/fiere-packaging.png" alt="Packaging de bière Fière, deux déclinaisons d'étiquette" loading="lazy" width="719" height="900">
+      <article class="project-card reveal" id="astria">
+        <div class="project-media gallery-wrap">
+          <div class="gallery">
+            <button type="button" class="slide"><img src="assets/img/astria-home.jpg" alt="Page d'accueil du site e-commerce Astria" loading="lazy"></button>
+            <button type="button" class="slide"><img src="assets/img/astria-product.jpg" alt="Fiche produit de la bague Vega sur le site Astria" loading="lazy"></button>
+          </div>
+          <button class="gallery-nav prev" aria-label="Visuel précédent">‹</button>
+          <button class="gallery-nav next" aria-label="Visuel suivant">›</button>
+          <button class="gallery-play" aria-label="Mettre le défilement en pause"></button>
+          <div class="gallery-dots" aria-label="Choisir un visuel"></div>
         </div>
         <div class="project-info">
-          <span class="project-tag">Packaging &amp; branding · Projet école</span>
-          <h3>Fière — Bière sans alcool</h3>
-          <p>Création de l'identité et du packaging d'une marque de bière sans alcool&nbsp;: nom, étiquettes illustrées et déclinaisons de goût.</p>
-          <ul class="project-meta">
-            <li>Packaging</li><li>Illustration</li><li>Branding</li>
-          </ul>
+          <span class="project-tag">Site e-commerce</span>
+          <h4>Astria, marque de bijoux</h4>
+          <p>Boutique en ligne créée de bout en bout sous WordPress&nbsp;: arborescence, page d'accueil, fiches produits et tunnel d'achat. J'ai aussi défini l'univers de la marque, du nom à la signature «&nbsp;Révélez l'éclat&nbsp;».</p>
+          <div class="project-tools">
+            <ul class="tool-list tool-list-sm">
+              <li><span class="tool-tile"><img src="assets/logos/wordpress.png" alt="" loading="lazy"></span><span class="tool-name">WordPress</span></li>
+              <li><span class="tool-tile"><img src="assets/logos/photoshop.png" alt="" loading="lazy"></span><span class="tool-name">Photoshop</span></li>
+            </ul>
+          </div>
         </div>
       </article>
 
-      <article class="project reveal" id="lvmh">
-        <div class="project-media">
-          <img src="assets/img/lvmh-poster.jpg" alt="Affiche LVMH, l'expérience à la française, façade de la Samaritaine" loading="lazy" width="1000" height="1780">
-        </div>
-        <div class="project-info">
-          <span class="project-tag">Affiche · Projet école</span>
-          <h3>LVMH — L'expérience à la française</h3>
-          <p>Conception d'une affiche mettant en scène le patrimoine architectural de la Samaritaine pour illustrer l'expérience client LVMH.</p>
-          <ul class="project-meta">
-            <li>Photomontage</li><li>Mise en page</li>
-          </ul>
-        </div>
-      </article>
 
-      <article class="project reverse reveal" id="handivisible">
-        <div class="project-media">
-          <img src="assets/img/handivisible-flyer.jpg" alt="Flyer de communication Handivisible / BabyVisible" loading="lazy" width="1000" height="1412">
-        </div>
-        <div class="project-info">
-          <span class="project-tag">Communication · Stage Handivisible</span>
-          <h3>Handivisible / BabyVisible</h3>
-          <p>Création d'un flyer et de contenus pour présenter le dispositif d'accessibilité prioritaire Handivisible / BabyVisible, en complément de la gestion des réseaux sociaux.</p>
-          <ul class="project-meta">
-            <li>Flyer</li><li>Réseaux sociaux</li><li>Accessibilité</li>
-          </ul>
-        </div>
-      </article>
 
-      <article class="project reveal" id="indesign">
+      <article class="project-card reveal" data-delay="1" id="indesign">
         <div class="project-media">
-          <img src="assets/img/indesign-cover.jpg" alt="Exercice de mise en page InDesign, recréation d'un gabarit de magazine" loading="lazy" width="707" height="1000">
+          <img src="assets/img/indesign-cover.jpg" alt="Exercice de mise en page InDesign, reproduction d'une double page de magazine" loading="lazy" width="707" height="1000">
         </div>
         <div class="project-info">
-          <span class="project-tag">Mise en page · Exercice de style</span>
-          <h3>Exercice de mise en page — InDesign</h3>
-          <p>Recréation d'une double page de magazine sous Adobe InDesign, à des fins d'entraînement à la mise en page éditoriale (typographie, grille, hiérarchie visuelle).</p>
-          <ul class="project-meta">
-            <li>InDesign</li><li>Mise en page</li><li>Typographie</li>
-          </ul>
+          <span class="project-tag">Mise en page</span>
+          <h4>Exercice de maquettage InDesign</h4>
+          <p>Reproduction à l'identique d'une double page de magazine existante&nbsp;: construction de la grille, colonnes, césures, hiérarchie typographique et placement des légendes.</p>
+          <div class="project-tools">
+            <ul class="tool-list tool-list-sm">
+              <li><span class="tool-tile"><img src="assets/logos/indesign.png" alt="" loading="lazy"></span><span class="tool-name">Adobe InDesign</span></li>
+            </ul>
+          </div>
         </div>
       </article>
 
     </div>
+   </div>
   </section>
 
-  <!-- PASSIONS -->
+  <!-- 05 PASSIONS -->
   <section class="section passions" id="passions">
+   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">04</span>
       <h2>Passions</h2>
     </div>
     <div class="passion-grid">
       <figure class="passion-item reveal">
-        <img src="assets/img/passion-voyage.jpg" alt="Vue depuis un hublot d'avion au coucher du soleil" loading="lazy" width="1000" height="1333">
+        <img src="assets/img/passion-voyage.jpg" alt="Vue depuis un hublot d'avion au coucher du soleil" loading="lazy" width="750" height="1000">
         <figcaption>Voyage</figcaption>
       </figure>
       <figure class="passion-item reveal" data-delay="1">
-        <img src="assets/img/passion-mode.jpg" alt="Photo mode, manteau et sac en velours côtelé" loading="lazy" width="1000" height="1351">
+        <img src="assets/img/passion-mode.jpg" alt="Photo mode, manteau et sac en velours côtelé" loading="lazy" width="740" height="1000">
         <figcaption>Mode</figcaption>
       </figure>
       <figure class="passion-item reveal" data-delay="2">
@@ -297,14 +567,16 @@
         <figcaption>Pâtisserie</figcaption>
       </figure>
       <figure class="passion-item reveal" data-delay="3">
-        <img src="assets/img/passion-broderie.jpg" alt="Broderie d'un visage fleuri sur tote bag en coton" loading="lazy" width="750" height="992">
+        <img src="assets/img/passion-broderie.jpg" alt="Broderie d'un visage fleuri sur tote bag en coton" loading="lazy" width="756" height="1000">
         <figcaption>Broderie</figcaption>
       </figure>
     </div>
+   </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- 06 CONTACT -->
   <section class="section contact" id="contact">
+   <div class="wrap">
     <div class="contact-inner reveal">
       <span class="section-num">05</span>
       <h2>Discutons</h2>
@@ -314,24 +586,31 @@
           <span class="contact-label">Email</span>
           <span class="contact-value">camille.jollant@outlook.fr</span>
         </a>
-        <a href="tel:+33681270819" class="contact-link">
-          <span class="contact-label">Téléphone</span>
-          <span class="contact-value">+33 6 81 27 08 19</span>
-        </a>
-        <a href="#" class="contact-link" id="linkedinLink">
+        <a href="https://www.linkedin.com/in/camille-jollant/" class="contact-link" id="linkedinLink" target="_blank" rel="noopener">
           <span class="contact-label">LinkedIn</span>
-          <span class="contact-value">Camille Jollant →</span>
+          <span class="contact-value">Camille Jollant</span>
         </a>
       </div>
     </div>
+   </div>
   </section>
 
 </main>
 
 <footer class="site-footer">
-  <p>Camille Jollant — 2026</p>
+  <p>Camille Jollant, portfolio 2026</p>
 </footer>
 
-<script src="script.js"></script>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visuel agrandi" hidden>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">×</button>
+  <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Visuel précédent">‹</button>
+  <figure class="lightbox-figure">
+    <img id="lightboxImg" alt="">
+    <figcaption id="lightboxCaption"></figcaption>
+  </figure>
+  <button class="lightbox-nav next" id="lightboxNext" aria-label="Visuel suivant">›</button>
+</div>
+
+<script src="script.js?v=38"></script>
 </body>
 </html>

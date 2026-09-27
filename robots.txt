@@ -1,0 +1,6 @@
+# Portfolio non référencé : accessible à qui possède le lien,
+# mais absent des moteurs de recherche.
+# Pour le rendre trouvable, remplacer par "Disallow:" (vide)
+# et retirer la balise robots dans index.html.
+User-agent: *
+Disallow: /
