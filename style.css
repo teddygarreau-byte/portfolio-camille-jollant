@@ -512,7 +512,22 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
   font-size:.78rem; letter-spacing:.09em; text-transform:uppercase; font-weight:600;
   color: var(--color-sage-ink); margin-bottom: 6px;
 }
-.timeline-content h4{ font-size: 1.3rem; margin-bottom: 2px; }
+/* Logo de l'entreprise à gauche du nom. La pastille s'adapte aux logos
+   larges comme aux carrés : hauteur fixe, largeur libre. */
+.timeline-brand{ display:flex; align-items:center; gap:12px; margin-bottom: 2px; }
+.timeline-logo{
+  flex:0 0 auto; height:42px; display:flex; align-items:center; justify-content:center;
+  padding: 5px 9px; border-radius:12px; background:#FFF;
+  border:1px solid var(--glass-border);
+  box-shadow: 0 4px 12px -7px rgba(69,58,53,.5);
+}
+.timeline-logo img{ height:100%; width:auto; max-width:104px; object-fit: contain; }
+.timeline-content h4{ font-size: 1.3rem; margin-bottom: 0; }
+@media (max-width: 520px){
+  .timeline-logo{ height:36px; padding:4px 7px; }
+  .timeline-logo img{ max-width:84px; }
+  .timeline-content h4{ font-size: 1.15rem; }
+}
 .timeline-place{
   font-size:.92rem; font-weight:600; color: var(--color-accent-ink); margin: 0 0 10px;
 }
