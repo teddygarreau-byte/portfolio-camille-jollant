@@ -116,6 +116,19 @@ body{
 }
 
 img{ display:block; max-width:100%; height:auto; }
+
+/* Paragraphes justifiés ; hyphens évite les "rivières" de blancs
+   que la justification creuse sinon dans les colonnes étroites. */
+.profil-text p,
+.panel-body p,
+.project-card .project-info p{
+  text-align: justify;
+  hyphens: auto; -webkit-hyphens: auto;
+}
+.profil-text .profil-seeking,
+.project-card .project-info .project-tools,
+.project-card .project-info .project-team,
+.project-card .project-info .project-link-line{ text-align:left; }
 a{ color: inherit; text-decoration: none; }
 ul{ list-style:none; margin:0; padding:0; }
 h1,h2,h3,h4{ font-family: var(--font-body); font-weight: 700; margin:0; text-wrap:balance; }
