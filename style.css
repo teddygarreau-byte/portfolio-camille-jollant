@@ -466,6 +466,17 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
   .profil-side{ grid-template-columns: 240px 1fr; grid-template-rows: auto; align-items:start; gap: var(--space-md); }
   .profil-photo{ min-height:0; aspect-ratio: 4/5; }
 }
+@media (max-width: 700px){
+  .profil .wrap{ display:flex; flex-direction:column; gap: var(--space-md); }
+  .profil-grid, .profil-side, .skills-row{ display: contents; }
+  .profil .section-head{ order:0; }
+  .profil-photo{ order:1; }
+  .profil-text{ order:2; }
+  .skills-card{ order:3; }
+  .formation-col{ order:4; padding-top:0; }
+  .profil-langues{ order:5; }
+  .skills-card{ margin-top:0; }
+}
 @media (max-width: 560px){
   .profil-side{ grid-template-columns: 1fr; }
   .profil-photo{ max-width: 260px; margin: 0 auto; min-height:0; aspect-ratio: 4/5; }
@@ -605,9 +616,13 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
   display:grid; grid-template-columns: 1fr 1fr; gap: 6px;
   border-radius: var(--radius-sm); overflow:hidden; background:#2A2320;
 }
+.croustiche-videos figure{ margin:0; display:flex; flex-direction:column; gap:8px; }
 .croustiche-videos video{
   display:block; width:100%; aspect-ratio: 9 / 16;
-  object-fit: cover; background:#2A2320;
+  object-fit: cover; background:#2A2320; border-radius:6px;
+}
+.croustiche-videos figcaption{
+  font-size:.78rem; line-height:1.4; color: rgba(255,255,255,.72); text-align:center;
 }
 .project-brand{ display:flex; align-items:center; gap:14px; margin-bottom: 12px; }
 .project-brand-logo{
