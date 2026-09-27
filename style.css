@@ -319,7 +319,9 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
 
 .section-head{ display:flex; align-items:center; gap: var(--space-sm); margin-bottom: var(--space-md); }
 .section-num{
-  font-size: .85rem; font-weight: 700; letter-spacing: .04em; color: var(--color-accent-ink);
+  /* chiffres en gras : contraste net avec le serif du titre voisin */
+  font-family: "Archivo", var(--font-body);
+  font-size: .95rem; font-weight: 800; letter-spacing: .01em; color: var(--color-accent-ink);
   background: var(--glass-strong); border: 1px solid var(--glass-border);
   width: 44px; height: 44px; border-radius: 50%;
   display:flex; align-items:center; justify-content:center; flex:0 0 auto;
