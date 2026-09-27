@@ -655,7 +655,6 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
 
 /* Carte sur toute la largeur de la grille : pour un projet à plusieurs supports */
 .wide-card{ grid-column: 1 / -1; }
-.wide-card .project-info{ max-width: 78ch; }
 
 /* Rangée de visuels aux formats différents : même hauteur, chacun garde son ratio */
 .iana-media{
