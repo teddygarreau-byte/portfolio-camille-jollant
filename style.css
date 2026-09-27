@@ -374,7 +374,8 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
 .profil-seeking{
   margin: 0 0 var(--space-sm); padding-bottom: var(--space-sm);
   border-bottom: 1px solid var(--color-line);
-  color: var(--color-accent-ink); font-weight:700; font-size:1.02rem;
+  color: var(--color-accent-ink); font-weight:700; font-size:.95rem;
+  text-transform: uppercase; letter-spacing: .07em;
 }
 
 /* Compétences et formation côte à côte, sous le profil */
