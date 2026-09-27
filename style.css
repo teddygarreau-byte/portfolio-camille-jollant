@@ -322,7 +322,7 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
   /* Pastille pleine à la couleur du titre, chiffre à la couleur du fond :
      le contraste est maximal et s'inverse tout seul en thème sombre. */
   font-family: "Archivo Black", var(--font-body);
-  font-size: 1rem; font-weight: 400; letter-spacing: .01em;
+  font-size: 1.22rem; font-weight: 400; letter-spacing: -.01em; line-height:1;
   color: var(--color-bg); background: var(--color-ink); border: none;
   width: 44px; height: 44px; border-radius: 50%;
   display:flex; align-items:center; justify-content:center; flex:0 0 auto;
