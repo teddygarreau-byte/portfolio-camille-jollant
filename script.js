@@ -193,6 +193,7 @@
     var next = wrap.querySelector(".gallery-nav.next");
     var playBtn = wrap.querySelector(".gallery-play");
     var dotsBox = wrap.querySelector(".gallery-dots");
+    var captionBox = wrap.querySelector(".gallery-caption");
     if (!gallery) return;
 
     var slides = Array.prototype.slice.call(gallery.querySelectorAll(".slide"));
@@ -229,6 +230,9 @@
       });
       if (prev) prev.style.visibility = i <= 0 ? "hidden" : "visible";
       if (next) next.style.visibility = i >= slides.length - 1 ? "hidden" : "visible";
+      /* la légende suit le visuel affiché ; le texte vient de l'alt de
+         l'image, elle est donc masquée aux lecteurs d'écran (doublon) */
+      if (captionBox && images[i]) captionBox.textContent = images[i].alt || "";
     }
 
     function scrollToSlide(i){

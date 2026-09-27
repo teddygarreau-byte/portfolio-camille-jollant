@@ -634,11 +634,15 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
   display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
   padding:10px; background:#2A2320; border-radius: var(--radius-sm);
 }
+.iana-media figure{ margin:0; display:flex; flex-direction:column; align-items:center; gap:8px; }
 /* spécificité volontairement haute : annule le cadrage 3/2 des cartes projet */
-.project-card .iana-media > img,
-.project-card .iana-media > video{
+.project-card .iana-media figure > img,
+.project-card .iana-media figure > video{
   display:block; height: clamp(230px, 34vw, 430px); width:auto; max-width:100%;
   aspect-ratio: auto; object-fit: contain; border-radius: 8px; background:#2A2320;
+}
+.iana-media figcaption{
+  font-size:.78rem; line-height:1.4; color: rgba(255,255,255,.72); text-align:center;
 }
 
 /* lien texte dans une carte projet : souligné, jamais un faux bouton */
@@ -673,7 +677,10 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
 /* ---------- Galerie : une image entière à la fois ----------
    Chaque diapo occupe exactement la largeur du cadre et l'image est
    en `contain` : aucun visuel n'est jamais rogné ni coupé au milieu. */
-.gallery-wrap{ position:relative; }
+/* Le cadre porte le positionnement : les flèches et les pastilles se
+   placent sur l'image, pas sur la légende qui la suit. */
+.gallery-wrap{ position:static; }
+.gallery-frame{ position:relative; }
 .gallery{
   display:flex; aspect-ratio: 3 / 2;
   overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth;
@@ -711,7 +718,7 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
   width:44px; height:44px; border-radius:50%; font-size:1.4rem; line-height:1;
   display:flex; align-items:center; justify-content:center; opacity:0;
 }
-.gallery-wrap:hover .gallery-nav, .gallery-nav:focus-visible{ opacity:1; }
+.gallery-frame:hover .gallery-nav, .gallery-nav:focus-visible{ opacity:1; }
 .gallery-nav:hover, .gallery-play:hover{ background: var(--color-accent); }
 .gallery-nav.prev{ left:12px; } .gallery-nav.next{ right:12px; }
 @media (hover:none){ .gallery-nav{ opacity:1; } }
@@ -730,6 +737,17 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
   border-left:10px solid var(--color-ink); border-top:7px solid transparent; border-bottom:7px solid transparent;
 }
 .gallery-play.paused::after{ width:0; height:0; background:transparent; }
+
+/* Légende sous le visuel : toujours lisible, sans avoir à agrandir.
+   aria-hidden côté HTML : le texte reprend l'alt de l'image, qui est
+   déjà annoncé aux lecteurs d'écran. */
+/* p.gallery-caption : suffisamment spécifique pour battre
+   `.project-card p{ margin:0 }` dans les cartes de projet */
+p.gallery-caption, p.media-caption{
+  margin: 10px 2px 0; font-size:.82rem; line-height:1.45;
+  color: var(--color-ink-soft); text-align:center;
+}
+.gallery-caption:empty{ display:none; }
 
 /* Pastilles de navigation : indiquent le nombre de visuels et la position */
 .gallery-dots{
