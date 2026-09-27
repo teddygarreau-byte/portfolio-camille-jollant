@@ -353,7 +353,9 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
   box-shadow: var(--glass-shadow);
   padding: var(--space-md);
 }
-.lede{ font-size: 1.15rem; color: var(--color-ink); margin-top:0; }
+/* même corps que les autres paragraphes du bloc ; l'accroche se distingue
+   par sa couleur plus dense, pas par sa taille */
+.lede{ font-size: 1rem; color: var(--color-ink); margin-top:0; }
 .profil-text p{ color: var(--color-ink-soft); }
 .profil-text .lede{ color: var(--color-ink); }
 
