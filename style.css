@@ -614,6 +614,12 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
 .project-card .project-media{ border-radius: var(--radius-sm); }
 .project-card .project-media > img{ aspect-ratio: 3 / 2; object-fit: contain; background: rgba(255,255,255,.3); }
 .project-card .gallery{ aspect-ratio: 3 / 2; border-radius: var(--radius-sm); }
+/* Ordre dans la carte : titre, visuel, texte.
+   L'en-tête reprend le retrait horizontal du texte pour rester aligné. */
+.project-head{ padding: var(--space-sm) 12px var(--space-sm); }
+.project-head .project-tag{ margin-bottom: 6px; }
+.project-head h4{ margin-bottom: 0; }
+.project-head.project-brand{ margin-bottom: 0; }
 .project-card .project-info{ padding: var(--space-sm) 12px 12px; }
 
 /* Carte vidéo : la vidéo est verticale, elle garde son format 9/16 */
