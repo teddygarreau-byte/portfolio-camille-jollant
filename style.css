@@ -357,9 +357,11 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
 }
 @media (max-width: 640px){ .focus-list{ grid-template-columns: 1fr; } }
 
+/* en tête du bloc : c'est l'information qu'un recruteur cherche en premier */
 .profil-seeking{
-  margin: var(--space-md) 0 0; color: var(--color-accent-ink);
-  font-weight:700; font-size:1.02rem;
+  margin: 0 0 var(--space-sm); padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-line);
+  color: var(--color-accent-ink); font-weight:700; font-size:1.02rem;
 }
 
 /* Compétences et formation côte à côte, sous le profil */
@@ -487,8 +489,10 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
 .timeline-place{
   font-size:.92rem; font-weight:600; color: var(--color-accent-ink); margin: 0 0 10px;
 }
+/* pas de max-width : le texte va jusqu'au bord du bloc plutôt que
+   de se couper en plein milieu sur un écran large */
 .timeline-content > p:not(.timeline-place):not(.timeline-date){
-  color: var(--color-ink-soft); max-width: 62ch; margin:0;
+  color: var(--color-ink-soft); max-width: none; margin:0;
 }
 /* Dépliant : le projet s'ouvre dans la carte du parcours */
 .timeline-toggle{
@@ -845,7 +849,19 @@ body.lightbox-open{ overflow:hidden; }
   opacity:0; transform: translateY(26px);
   transition: opacity 700ms var(--ease), transform 700ms var(--ease);
 }
+.section-head.reveal{ transition: opacity 560ms var(--ease), transform 640ms cubic-bezier(.2,.9,.25,1.08); }
 .reveal.in-view{ opacity:1; transform: translateY(0); }
+
+/* Les titres de section entrent en zoom : la transition d'un point
+   à l'autre se voit, sans concurrencer la lecture du contenu. */
+.section-head.reveal{ transform: scale(.86); transform-origin: left center; }
+.section-head.reveal.in-view{ transform: scale(1); }
+.section-head.reveal .section-num{
+  transform: scale(.6) rotate(-14deg); opacity:0;
+  transition: transform 620ms var(--ease) 90ms, opacity 460ms var(--ease) 90ms;
+}
+.section-head.reveal.in-view .section-num{ transform: scale(1) rotate(0); opacity:1; }
+.contact-inner.reveal .section-num{ transform:none; opacity:1; }
 .reveal.in-view[data-delay="1"]{ transition-delay: 90ms; }
 .reveal.in-view[data-delay="2"]{ transition-delay: 180ms; }
 .reveal.in-view[data-delay="3"]{ transition-delay: 270ms; }
