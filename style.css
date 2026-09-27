@@ -32,6 +32,8 @@
   --color-line:   rgba(69,58,53,.14);
 
   --font-body: "Quicksand", "Helvetica Neue", Arial, sans-serif;
+  /* Titres d'apparat : le nom du hero et les titres de section */
+  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
 
   --space-xs: 8px;
   --space-sm: 16px;
@@ -279,8 +281,10 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
 .hero-corner span{ color: var(--color-accent); }
 .hero-inner{ position:relative; z-index:1; max-width: 900px; padding: 0 var(--space-md); }
 .hero-name{
-  font-weight: 700; font-size: clamp(2.9rem, 10.5vw, 7rem); line-height:.98;
-  text-transform: uppercase; color:#FFFFFF; letter-spacing:.015em;
+  font-family: var(--font-display);
+  /* Instrument Serif n'a qu'une graisse : pas de 700 synthétique */
+  font-weight: 400; font-size: clamp(3.1rem, 11.5vw, 7.6rem); line-height:1.02;
+  text-transform: uppercase; color:#FFFFFF; letter-spacing:.03em;
   text-shadow: 0 2px 30px rgba(0,0,0,.42), 0 1px 3px rgba(0,0,0,.3);
 }
 .hero-name .line{ display:block; }
@@ -320,7 +324,10 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
   width: 44px; height: 44px; border-radius: 50%;
   display:flex; align-items:center; justify-content:center; flex:0 0 auto;
 }
-.section-head h2{ font-size: clamp(1.9rem, 4vw, 2.6rem); letter-spacing:-.01em; }
+.section-head h2{
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(2.1rem, 4.4vw, 2.9rem); letter-spacing: 0; line-height:1.12;
+}
 
 /* Carte de verre — surface réutilisée partout */
 .glass{
