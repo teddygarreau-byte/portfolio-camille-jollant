@@ -319,10 +319,11 @@ body.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(
 
 .section-head{ display:flex; align-items:center; gap: var(--space-sm); margin-bottom: var(--space-md); }
 .section-num{
-  /* chiffres en gras : contraste net avec le serif du titre voisin */
-  font-family: "Archivo", var(--font-body);
-  font-size: .95rem; font-weight: 800; letter-spacing: .01em; color: var(--color-accent-ink);
-  background: var(--glass-strong); border: 1px solid var(--glass-border);
+  /* Pastille pleine à la couleur du titre, chiffre à la couleur du fond :
+     le contraste est maximal et s'inverse tout seul en thème sombre. */
+  font-family: "Archivo Black", var(--font-body);
+  font-size: 1rem; font-weight: 400; letter-spacing: .01em;
+  color: var(--color-bg); background: var(--color-ink); border: none;
   width: 44px; height: 44px; border-radius: 50%;
   display:flex; align-items:center; justify-content:center; flex:0 0 auto;
 }
