@@ -240,16 +240,36 @@ h1,h2,h3,h4{ margin:0; font-weight:400; text-wrap: balance; }
   font-size: clamp(1.45rem, 4.2vw, 2.9rem); color: var(--head-ink); letter-spacing:.01em;
 }
 
-/* Planche de liège à cadre bois */
+/* Planche de liège à cadre bois : bois au fil horizontal en haut et en bas,
+   montants latéraux au fil vertical, coins coupés en onglet. */
 .board{
+  --cadre: 16px;
   position:relative; padding: clamp(18px, 3.4vw, 40px);
-  border: 16px solid transparent;
-  border-image: linear-gradient(90deg, #C7A070, #DEBB90 30%, #C39B6C 55%, #D9B386 80%, #C49D6F) 1;
-  background: var(--cork) url("assets/img/liege.jpg?v=3") 0 0 / 300px;
-  box-shadow: inset 0 0 26px rgba(90,50,10,.16), 0 12px 30px rgba(60,40,20,.25);
+  border: var(--cadre) solid transparent;
+  background:
+    url("assets/img/liege.jpg?v=3") 0 0 / 220px padding-box,
+    linear-gradient(rgba(255,240,215,.22), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(60,30,8,.25)) border-box,
+    url("assets/img/bois-h.jpg") 0 0 / 800px 100% border-box;
+  box-shadow: inset 0 0 0 1px rgba(60,30,8,.35), inset 0 0 26px rgba(90,50,10,.16),
+              0 0 0 1px rgba(60,30,8,.3), 0 12px 30px rgba(60,40,20,.25);
+}
+.board::before, .board::after{
+  content:""; position:absolute; top: calc(-1 * var(--cadre)); bottom: calc(-1 * var(--cadre));
+  width: var(--cadre); z-index:0; pointer-events:none;
+  background: url("assets/img/bois-v.jpg") 0 0 / 100% 800px;
+}
+.board::before{
+  left: calc(-1 * var(--cadre));
+  clip-path: polygon(0 0, 100% var(--cadre), 100% calc(100% - var(--cadre)), 0 100%);
+  box-shadow: inset 6px 0 6px -4px rgba(255,240,215,.28);
+}
+.board::after{
+  right: calc(-1 * var(--cadre));
+  clip-path: polygon(0 var(--cadre), 100% 0, 100% 100%, 0 calc(100% - var(--cadre)));
+  box-shadow: inset -6px 0 6px -4px rgba(60,30,8,.3);
 }
 .board > *{ position:relative; z-index:1; }
-@media (max-width: 640px){ .board{ border-width: 10px; } }
+@media (max-width: 640px){ .board{ --cadre: 10px; } }
 
 /* Feuille kraft sur toute la section (projets pro, contact) */
 .kraft-section::before{
