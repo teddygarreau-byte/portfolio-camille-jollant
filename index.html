@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=71">
+<link rel="stylesheet" href="style.css?v=73">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22 font-family=%22sans-serif%22 font-weight=%22bold%22>C</text></svg>">
 </head>
 <body>
@@ -43,17 +43,6 @@
   <filter id="dechire" x="-6%" y="-6%" width="112%" height="112%">
     <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="4" seed="2" result="n"/>
     <feDisplacementMap in="SourceGraphic" in2="n" scale="16" xChannelSelector="R" yChannelSelector="G"/>
-  </filter>
-  <filter id="dechire-fort" x="-6%" y="-6%" width="112%" height="112%">
-    <feTurbulence type="fractalNoise" baseFrequency=".016 .05" numOctaves="5" seed="5" result="n"/>
-    <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G"/>
-  </filter>
-  <!-- Cœur blanc et fibreux qui dépasse sous la déchirure -->
-  <filter id="dechire-fibre" x="-6%" y="-6%" width="112%" height="112%">
-    <feTurbulence type="fractalNoise" baseFrequency=".016 .05" numOctaves="5" seed="5" result="n"/>
-    <feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G" result="d"/>
-    <feTurbulence type="fractalNoise" baseFrequency=".09 .5" numOctaves="2" seed="12" result="f"/>
-    <feDisplacementMap in="d" in2="f" scale="14" xChannelSelector="R" yChannelSelector="G"/>
   </filter>
   <filter id="dechire-fin" x="-6%" y="-10%" width="112%" height="120%">
     <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="3" seed="9" result="n"/>
@@ -81,7 +70,7 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero-sheet" aria-hidden="true"><i class="hero-grain"></i></div>
+    <div class="hero-sheet" aria-hidden="true"><i class="hero-grain"></i><i class="hero-tear"></i></div>
     <div class="hero-inner">
       <h1 class="hero-name">
         <span class="line">Camille</span>
