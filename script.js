@@ -331,7 +331,7 @@
   });
 
   /* ---------- Apparition en cascade dans les grilles ---------- */
-  [".tool-list", ".passion-grid", ".project-grid", ".formation-grid", ".timeline"].forEach(function(sel){
+  [".tool-list", ".passion-grid", ".project-grid", ".timeline"].forEach(function(sel){
     document.querySelectorAll(sel).forEach(function(group){
       Array.prototype.forEach.call(group.children, function(child, i){
         child.classList.add("reveal");
