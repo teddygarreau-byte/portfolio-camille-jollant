@@ -138,11 +138,15 @@ h1,h2,h3,h4{ margin:0; font-weight:400; text-wrap: balance; }
 }
 .site-header::before{
   content:""; position:absolute; inset:0; z-index:-1; opacity:0;
-  background: var(--kraft) var(--tx-fibre); background-blend-mode: multiply;
-  box-shadow: 0 4px 14px rgba(60,38,14,.18);
+  /* verre dépoli : fond crème légèrement transparent, contenu flouté derrière */
+  background: rgba(248,243,234,.55);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+          backdrop-filter: blur(16px) saturate(1.2);
+  border-bottom: 1px solid rgba(255,255,255,.45);
+  box-shadow: 0 4px 18px rgba(60,38,14,.12);
   transition: opacity var(--dur-fast) var(--ease);
 }
-.site-header.scrolled::before{ opacity:.97; }
+.site-header.scrolled::before{ opacity:1; }
 .logo{ font-family: var(--f-serif); font-size: 1.7rem; line-height:1; color: var(--rust); letter-spacing:.02em; }
 .main-nav{ display:flex; align-items:center; gap: 26px; }
 .main-nav a{
