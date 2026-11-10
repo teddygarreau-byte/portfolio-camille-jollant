@@ -112,10 +112,10 @@ h1,h2,h3,h4{ margin:0; font-weight:400; text-wrap: balance; }
 .pinned.pin-left.in-view::after, .in-view .pinned.pin-left::after{ transform: scale(1); }
 
 .tape{
+  /* vrai ruban adhésif : translucide, crêpé, bouts déchirés en dents de scie */
   position:absolute; z-index:3; width:118px; height:30px; pointer-events:none;
-  background: var(--tx-papier) 0 0 / 400px, var(--tx-fibre), var(--kraft-tape); background-blend-mode: multiply;
-  opacity:.78; mix-blend-mode: multiply;
-  filter: url(#dechire-fin);
+  background: url("assets/img/scotch.png") center / 100% 100% no-repeat;
+  filter: drop-shadow(0 1px 1.5px rgba(60,38,14,.22));
 }
 .tape.tl{ top:-13px; left:-28px; transform: rotate(-32deg); }
 .tape.tr{ top:-13px; right:-28px; transform: rotate(32deg); }
@@ -232,11 +232,11 @@ h1,h2,h3,h4{ margin:0; font-weight:400; text-wrap: balance; }
   opacity:.9; filter: url(#dechire-fin); mix-blend-mode: multiply;
 }
 .section-num{
-  font-family: var(--f-hand); font-style: italic; font-weight:700; font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-family: var(--f-hand); font-style: italic; font-weight:600; font-size: clamp(2.4rem, 5vw, 3.6rem);
   line-height:1; color: var(--gold-ink);
 }
 .section-head h2{
-  font-family: var(--f-hand); font-style: italic; font-weight:700;
+  font-family: var(--f-hand); font-style: italic; font-weight:600;
   font-size: clamp(1.5rem, 3.2vw, 2.1rem); color: var(--gold-ink); letter-spacing:.01em;
 }
 
