@@ -373,4 +373,26 @@
     setTimeout(revealFallback, 1500);
   }
 
+  /* ---------- Tableau en liège : léger coup de vent au défilement ----------
+     Quand on fait défiler la page et que le tableau est à l'écran, chaque
+     feuille oscille un peu autour de sa punaise, dans le sens du défilement,
+     puis se stabilise. Pas de nouvelle rafale avant la fin de la précédente. */
+  var board = document.querySelector(".profil-board");
+  if (board && !reduceMotion){
+    var feuilles = board.querySelectorAll(".profil-photo, .profil-text, .profil-langues, .formation-col, .skills-card");
+    var calme = true, dernierY = window.scrollY;
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY, dy = y - dernierY; dernierY = y;
+      if (!calme || Math.abs(dy) < 2) return;
+      var r = board.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) return;
+      calme = false;
+      board.style.setProperty("--sens", dy > 0 ? 1 : -1);
+      feuilles.forEach(function(f){
+        f.classList.remove("vent"); void f.offsetWidth; f.classList.add("vent");
+      });
+      setTimeout(function(){ calme = true; }, 1700);
+    }, { passive: true });
+  }
+
 })();

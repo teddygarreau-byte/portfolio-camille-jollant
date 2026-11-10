@@ -637,3 +637,23 @@ body.lightbox-open{ overflow:hidden; }
   .formation-detail{ font-size:.7rem; line-height:1.35; }
   .formation-sub, .formation-year{ font-size:.82rem; }
 }
+
+/* Tableau en liège : punaises fixes (sans animation) */
+.board .pinned::after, .board .pinned.in-view::after, .board .in-view .pinned::after{ transition:none; transform: translateX(-50%); }
+.board .pinned.pin-right::after, .board .pinned.pin-left::after{ transform:none; }
+/* coup de vent : oscillation amortie autour de la punaise (propriété rotate,
+   qui s'ajoute à l'inclinaison de chaque feuille sans l'écraser) */
+@keyframes coupDeVent{
+  0%  { rotate: 0deg; }
+  22% { rotate: calc(var(--amp) * var(--sens, 1)); }
+  50% { rotate: calc(var(--amp) * var(--sens, 1) * -.55); }
+  76% { rotate: calc(var(--amp) * var(--sens, 1) * .22); }
+  100%{ rotate: 0deg; }
+}
+.profil-board .vent{ animation: coupDeVent 1.5s cubic-bezier(.3,.6,.4,1) var(--retard, 0s); transform-origin: 50% 0; }
+.profil-board .profil-photo{ --amp: 1.6deg; --retard: 0s; }
+.profil-board .profil-text{ --amp: .5deg; --retard: .08s; }
+.profil-board .profil-langues{ --amp: 1.8deg; --retard: .14s; }
+.profil-board .formation-col{ --amp: 1.4deg; --retard: .2s; }
+.profil-board .skills-card{ --amp: .6deg; --retard: .12s; }
+.profil-board .pin-right.vent{ transform-origin: calc(100% - 44px) 0; }
