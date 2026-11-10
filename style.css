@@ -48,7 +48,6 @@
   /* Textures : grain de papier, mouchetis, liège */
   --tx-fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .3 0 0 0 0 .2 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
   --tx-mouchetis: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9 -6.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)' fill='%23423124'/%3E%3C/svg%3E");
-  --tx-liege: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62' numOctaves='3' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .33 0 0 0 0 .14 0 0 0 1.4 -.25'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='b'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.08' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .62 0 0 0 0 .4 0 0 0 0 .18 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23b)'/%3E%3C/svg%3E");
   --tx-flecs: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='1' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .95 0 0 0 0 .8 0 0 0 7 -4.6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
 
 }
@@ -232,11 +231,11 @@ h1,h2,h3,h4{ margin:0; font-weight:400; text-wrap: balance; }
   opacity:.9; filter: url(#dechire-fin); mix-blend-mode: multiply;
 }
 .section-num{
-  font-family: var(--f-hand); font-style: italic; font-weight:600; font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-family: var(--f-hand); font-style: italic; font-weight:500; font-size: clamp(2.4rem, 5vw, 3.6rem);
   line-height:1; color: var(--gold-ink);
 }
 .section-head h2{
-  font-family: var(--f-hand); font-style: italic; font-weight:600;
+  font-family: var(--f-hand); font-style: italic; font-weight:500;
   font-size: clamp(1.5rem, 3.2vw, 2.1rem); color: var(--gold-ink); letter-spacing:.01em;
 }
 
@@ -245,12 +244,8 @@ h1,h2,h3,h4{ margin:0; font-weight:400; text-wrap: balance; }
   position:relative; padding: clamp(18px, 3.4vw, 40px);
   border: 16px solid transparent;
   border-image: linear-gradient(90deg, #C7A070, #DEBB90 30%, #C39B6C 55%, #D9B386 80%, #C49D6F) 1;
-  background: var(--tx-liege), var(--cork);
+  background: var(--cork) url("assets/img/liege.jpg") 0 0 / 320px;
   box-shadow: inset 0 0 44px rgba(90,50,10,.28), 0 12px 30px rgba(60,40,20,.25);
-}
-.board::after{
-  content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
-  background-image: var(--tx-flecs);
 }
 .board > *{ position:relative; z-index:1; }
 @media (max-width: 640px){ .board{ border-width: 10px; } }
