@@ -556,36 +556,16 @@ p.gallery-caption, p.media-caption, .polaroid figcaption, .iana-media figcaption
 .contact-value{ font-family: var(--f-serif); font-size: 1.15rem; color: var(--rust); border-bottom: 1px solid transparent; transition: border-color var(--dur-fast) var(--ease); overflow-wrap:anywhere; }
 .contact-link:hover .contact-value{ border-color: var(--rust); }
 /* le timbre, en haut à droite */
-/* Timbre : bord blanc dentelé, panneau rouge gravé, légendes en capitales */
+/* Timbre collé en haut à droite de la carte */
 .stamp{
-  position:absolute; top:20px; right:22px; width:90px; height:110px;
+  position:absolute; top:18px; right:22px; width:78px; height:auto;
   transform: rotate(4deg);
-  filter: drop-shadow(0 2px 2px rgba(60,38,14,.28)) drop-shadow(0 6px 10px rgba(60,38,14,.14));
+  filter: drop-shadow(0 1px 1.5px rgba(60,38,14,.3)) drop-shadow(0 5px 9px rgba(60,38,14,.14));
 }
-.stamp-paper{
-  position:absolute; inset:0; background:#FFFFFF; padding: 9px 9px 7px;
-  display:flex; flex-direction:column;
-  /* dentelure : demi-cercles découpés tout le long du bord */
-  -webkit-mask: radial-gradient(circle 3.3px, transparent 96%, #000) -5px -5px / 10px 10px,
-                linear-gradient(#000 0 0) 5px 5px / calc(100% - 10px) calc(100% - 10px) no-repeat;
-          mask: radial-gradient(circle 3.3px, transparent 96%, #000) -5px -5px / 10px 10px,
-                linear-gradient(#000 0 0) 5px 5px / calc(100% - 10px) calc(100% - 10px) no-repeat;
-}
-.stamp-art{
-  position:relative; flex:1; overflow:hidden; color:#FFF;
-  background:
-    repeating-linear-gradient(118deg, rgba(255,255,255,.13) 0 .6px, transparent .6px 2.4px),
-    radial-gradient(circle at 62% 46%, #D9444A 0, #C42D35 55%, #A8222B 100%);
-}
-.stamp-top{ position:absolute; top:4px; left:6px; font: 700 .5rem/1 var(--f-sans); letter-spacing:.14em; text-transform:uppercase; }
-.stamp-side{ position:absolute; left:3px; bottom:16px; writing-mode: vertical-rl; transform: rotate(180deg); font: 500 .38rem/1 var(--f-sans); letter-spacing:.06em; opacity:.95; }
-.stamp-cj{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding-left:6px; font-family: var(--f-serif); font-size: 2.3rem; line-height:1; text-shadow: 0 1px 0 rgba(120,20,25,.35); }
-.stamp-bottom{ position:absolute; right:4px; bottom:4px; font-family: var(--f-serif); font-size:.5rem; line-height:1; white-space:nowrap; }
-.stamp-foot{ display:flex; justify-content:space-between; margin-top:3px; font: 700 .36rem/1 var(--f-sans); letter-spacing:.06em; text-transform:uppercase; color:#B5282F; }
 @media (max-width: 700px){
   .contact-inner{ grid-template-columns: 1fr; gap: 28px; padding: 32px 26px 30px; }
   .contact-links{ border-left:none; border-top: 1px solid rgba(169,85,58,.3); padding: 24px 0 0; }
-  .stamp{ transform: rotate(4deg) scale(.78); transform-origin: top right; }
+  .stamp{ width:60px; }
 }
 
 .site-footer{ text-align:center; padding: 30px 16px 40px; font-family: var(--f-serif); font-style: italic; color: var(--ink-soft); font-size: .95rem; }
