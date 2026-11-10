@@ -625,3 +625,13 @@ body.lightbox-open{ overflow:hidden; }
   .profil-board .formation-grid{ flex-direction:column; align-items:center; gap: 20px; }
   .profil-board .skills-card{ grid-area: outils; margin-top: 30px; }
 }
+/* Téléphone : BUT et Master côte à côte pour raccourcir le papier Formation */
+@media (max-width: 640px){
+  .formation-col{ padding: 20px 14px 18px; }
+  .formation-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 16px 12px; align-items:start; }
+  .formation-item{ max-width:none; }
+  .formation-logo{ width:40px; height:40px; margin-bottom: 4px; }
+  .formation-title{ font-size:.8rem; line-height:1.3; text-wrap: balance; }
+  .formation-detail{ font-size:.7rem; line-height:1.35; }
+  .formation-sub, .formation-year{ font-size:.82rem; }
+}
