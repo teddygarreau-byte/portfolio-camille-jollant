@@ -568,7 +568,15 @@ p.gallery-caption, p.media-caption, .polaroid figcaption, .iana-media figcaption
   .stamp{ width:60px; }
 }
 
-.site-footer{ text-align:center; padding: 30px 16px 40px; font-family: var(--f-serif); font-style: italic; color: var(--ink-soft); font-size: .95rem; }
+/* Signature en bas de la carte postale (ancien pied de page) */
+.site-footer{
+  grid-column: 1 / -1; text-align:center; margin-top: 30px; padding-top: 18px;
+  border-top: 1px solid rgba(169,85,58,.3);
+  font-family: var(--f-serif); font-style: italic; color: var(--ink-soft); font-size: 1.05rem;
+}
+.site-footer p{ margin:0; }
+/* moins d'espace entre la carte et la fin de la page */
+.section.contact{ padding-bottom: 34px; }
 
 /* ---------- Visuel agrandi ---------- */
 .lightbox{
@@ -598,5 +606,3 @@ body.lightbox-open{ overflow:hidden; }
 /* Point 3 : essai sans tableau, les feuilles directement sur le papier peint */
 .board.sans-cadre{ border:0; padding:0; background:none; box-shadow:none; }
 .board.sans-cadre::before, .board.sans-cadre::after{ display:none; }
-/* mention du bas de page : petite étiquette crème pour rester lisible sur les tulipes */
-.site-footer p{ display:inline-block; margin:0; padding: 5px 14px; background: rgba(255,253,248,.9); box-shadow: 0 2px 6px rgba(60,38,14,.15); }
