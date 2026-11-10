@@ -22,7 +22,7 @@
 <meta name="twitter:title" content="Portfolio Camille Jollant">
 <meta name="twitter:description" content="Chargée marketing digital : réseaux sociaux, CMS, emailing, campagnes SEA et création de contenus.">
 <meta name="twitter:image" content="https://teddygarreau-byte.github.io/portfolio-camille-jollant/assets/img/og-preview.jpg">
-<meta name="theme-color" content="#FBF7F2">
+<meta name="theme-color" content="#E9DDC4">
 
 <!-- Site non référencé : visible par qui a le lien, absent des moteurs
      de recherche. Retirer cette ligne ET modifier robots.txt pour
@@ -31,52 +31,29 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<!-- Archivo n'est utilisée que pour les numéros de section : on ne charge
-     que les dix chiffres, la requête pèse quelques centaines d'octets. -->
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&text=0123456789&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=65">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=69">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22 font-family=%22sans-serif%22 font-weight=%22bold%22>C</text></svg>">
 </head>
 <body>
 
-<svg class="icon-defs" aria-hidden="true" focusable="false">
-  <defs>
-    <symbol id="ico-social" viewBox="0 0 24 24">
-      <rect x="3" y="4" width="18" height="12.5" rx="4"/>
-      <path d="M9 16.5 7.2 20.5 13 16.5"/>
-    </symbol>
-    <symbol id="ico-cms" viewBox="0 0 24 24">
-      <rect x="3" y="4" width="18" height="16" rx="3.5"/>
-      <path d="M3 9h18"/>
-      <path d="M6.3 6.5h.01M9 6.5h.01"/>
-    </symbol>
-    <symbol id="ico-mail" viewBox="0 0 24 24">
-      <rect x="3" y="5" width="18" height="14" rx="3.5"/>
-      <path d="M4.5 8.5 12 13.5l7.5-5"/>
-    </symbol>
-    <symbol id="ico-design" viewBox="0 0 24 24">
-      <path d="M12 3.2 2.8 8 12 12.8 21.2 8 12 3.2Z"/>
-      <path d="M2.8 13 12 17.8 21.2 13"/>
-    </symbol>
-    <symbol id="ico-board" viewBox="0 0 24 24">
-      <rect x="3" y="4" width="18" height="16" rx="3.5"/>
-      <path d="M9 4.5v15M15 4.5v15"/>
-    </symbol>
-    <symbol id="ico-school" viewBox="0 0 24 24">
-      <path d="M12 3.6 2.5 8.4 12 13.2l9.5-4.8L12 3.6Z"/>
-      <path d="M6.4 10.8v4.4c0 1.7 2.5 3 5.6 3s5.6-1.3 5.6-3v-4.4"/>
-      <path d="M21.5 8.4v5"/>
-    </symbol>
-    <symbol id="ico-search" viewBox="0 0 24 24">
-      <circle cx="11" cy="11" r="6.5"/>
-      <path d="m16 16 4.5 4.5"/>
-    </symbol>
-  </defs>
+<svg class="filtres" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bords déchirés : du bruit déplace les contours d'un rectangle. Appliqué aux
+       calques de fond (::before), jamais au texte, qui reste net. -->
+  <filter id="dechire" x="-6%" y="-6%" width="112%" height="112%">
+    <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="4" seed="2" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="16" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="dechire-fort" x="-6%" y="-6%" width="112%" height="112%">
+    <feTurbulence type="fractalNoise" baseFrequency=".02 .06" numOctaves="4" seed="5" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="34" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="dechire-fin" x="-6%" y="-10%" width="112%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="3" seed="9" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
 </svg>
 
-<div class="bg-blobs" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-<div class="grain" aria-hidden="true"></div>
 <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
 <header class="site-header" id="siteHeader">
@@ -97,9 +74,7 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero-bg" role="img" aria-label="Portrait de Camille Jollant"></div>
-    <div class="hero-scrim"></div>
-    <p class="hero-corner">Portfolio <span>2026</span></p>
+    <div class="hero-sheet" aria-hidden="true"></div>
     <div class="hero-inner">
       <h1 class="hero-name">
         <span class="line">Camille</span>
@@ -107,45 +82,21 @@
       </h1>
       <p class="hero-sub">Mon portfolio</p>
     </div>
-    <a href="#profil" class="scroll-cue" aria-label="Défiler vers le bas">
-      <span></span>
-    </a>
   </section>
 
   <!-- 01 PROFIL -->
   <section class="section profil" id="profil">
    <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-num">01</span>
+      <span class="section-num">1</span>
       <h2>Profil et compétences</h2>
     </div>
+    <div class="board">
     <div class="profil-grid">
-      <div class="profil-side reveal">
-        <div class="profil-photo">
-          <img src="assets/img/camille-portrait.jpg" alt="Portrait de Camille Jollant" loading="lazy" width="1000" height="666">
-        </div>
-        <div class="card profil-langues">
-          <h3 class="block-label">Langues</h3>
-          <ul class="lang-list">
-            <li>
-              <span class="lang-name">Français</span>
-              <span class="lang-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
-              <span class="lang-level">Langue maternelle</span>
-            </li>
-            <li>
-              <span class="lang-name">Anglais</span>
-              <span class="lang-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
-              <span class="lang-level">B2</span>
-            </li>
-            <li>
-              <span class="lang-name">Espagnol</span>
-              <span class="lang-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
-              <span class="lang-level">B1</span>
-            </li>
-          </ul>
-        </div>
+      <div class="profil-photo polaroid pinned reveal">
+        <img src="assets/img/camille-portrait.jpg" alt="Portrait de Camille Jollant" loading="lazy" width="1000" height="666">
       </div>
-      <div class="profil-text reveal" data-delay="1">
+      <div class="profil-text paper pinned pin-right reveal" data-delay="1">
         <p class="profil-seeking">Recherche un CDI ou un CDD en marketing digital</p>
         <p class="lede">Jeune diplômée d'un <strong>Master Marketing Digital</strong> à l'IAE La Rochelle, je suis opérationnelle sur toute la chaîne digitale allant de la gestion des réseaux sociaux, d'un CMS, de l'emailing, au SEA.</p>
 
@@ -166,13 +117,52 @@
             <li>Suivi des KPI et analyse des performances</li>
           </ul>
         </div>
+      </div>
+    </div>
 
+    <div class="formation-col kraft fin reveal">
+      <span class="tape tl" aria-hidden="true"></span>
+      <h3 class="block-label">Formation</h3>
+      <div class="formation-grid">
+        <div class="formation-item">
+          <span class="formation-logo"><img src="assets/logos/iut-troyes.jpg" alt="Logo de l'IUT de Troyes" loading="lazy"></span>
+          <p class="formation-title">BUT Techniques de Commercialisation</p>
+          <p class="formation-detail">Parcours marketing digital, e-business et entrepreneuriat</p>
+          <p class="formation-sub">IUT de Troyes</p>
+          <p class="formation-year">2021 à 2024</p>
+        </div>
+        <div class="formation-item">
+          <span class="formation-logo"><img src="assets/logos/iae-la-rochelle.png" alt="Logo de l'IAE La Rochelle" loading="lazy"></span>
+          <p class="formation-title">Master Marketing Digital</p>
+          <p class="formation-sub">IAE La Rochelle</p>
+          <p class="formation-year">2024 à 2026</p>
+        </div>
       </div>
     </div>
 
     <div class="skills-row">
-     <div class="card skills-card reveal">
-      <h3 class="block-label">Outils numériques</h3>
+      <div class="profil-langues paper fin pinned reveal">
+          <h3 class="block-label">Langues</h3>
+          <ul class="lang-list">
+            <li>
+              <span class="lang-name">Français</span>
+              <span class="lang-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              <span class="lang-level">Langue maternelle</span>
+            </li>
+            <li>
+              <span class="lang-name">Anglais</span>
+              <span class="lang-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              <span class="lang-level">B2</span>
+            </li>
+            <li>
+              <span class="lang-name">Espagnol</span>
+              <span class="lang-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+              <span class="lang-level">B1</span>
+            </li>
+          </ul>
+      </div>
+      <div class="skills-card paper pinned pin-right reveal" data-delay="1">
+      <h3 class="block-label">Les outils que je maîtrise</h3>
 
       <div class="skill-group">
         <p class="skill-cat">
@@ -245,45 +235,25 @@
       </div>
      </div>
 
-     <div class="formation-col">
-      <h3 class="block-label reveal">Formation</h3>
-      <div class="formation-grid">
-        <div class="card formation-item reveal">
-          <span class="formation-logo"><img src="assets/logos/iae-la-rochelle.png" alt="Logo de l'IAE La Rochelle" loading="lazy"></span>
-          <div>
-            <p class="formation-title">Master Marketing Digital</p>
-            <p class="formation-sub">IAE La Rochelle</p>
-            <p class="formation-year">2024 à 2026</p>
-          </div>
-        </div>
-        <div class="card formation-item reveal" data-delay="1">
-          <span class="formation-logo"><img src="assets/logos/iut-troyes.jpg" alt="Logo de l'IUT de Troyes" loading="lazy"></span>
-          <div>
-            <p class="formation-title">BUT Techniques de Commercialisation</p>
-            <p class="formation-sub">IUT de Troyes</p>
-            <p class="formation-detail">Parcours marketing digital, e-business et entrepreneuriat</p>
-            <p class="formation-year">2021 à 2024</p>
-          </div>
-        </div>
-      </div>
-     </div>
+    </div>
     </div>
    </div>
   </section>
 
 
   <!-- 03 PARCOURS -->
-  <section class="section parcours" id="parcours">
+  <section class="section parcours kraft-section" id="parcours">
    <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-num">02</span>
+      <span class="section-num">2</span>
       <h2>Projets professionnels</h2>
     </div>
 
     <div class="timeline">
 
       <article class="timeline-item reveal">
-        <div class="timeline-content">
+        <div class="timeline-content paper">
+          <span class="tape tl" aria-hidden="true"></span>
           <p class="timeline-date">Sept. 2025 à août 2026</p>
           <div class="timeline-brand">
             <span class="timeline-logo"><img src="assets/logos/lea-nature.png" alt="Logo Léa Nature" loading="lazy"></span>
@@ -296,7 +266,7 @@
           </button>
           <div class="timeline-panel" id="panel-jonzac">
            <div class="timeline-panel-inner">
-      <div class="project-media gallery-wrap">
+      <div class="project-media gallery-wrap polaroid">
                 <div class="gallery-frame">
                   <div class="gallery">
                     <button type="button" class="slide"><img src="assets/img/jonzac-outil-1.jpg" alt="Extraits des slides du support de formation Eau Thermale Jonzac" loading="lazy"></button>
@@ -330,7 +300,8 @@
       </article>
 
       <article class="timeline-item reveal">
-        <div class="timeline-content">
+        <div class="timeline-content paper">
+          <span class="tape tl" aria-hidden="true"></span>
           <p class="timeline-date">Avril à juillet 2025</p>
           <div class="timeline-brand">
             <span class="timeline-logo"><img src="assets/logos/ats.png" alt="Logo ATS" loading="lazy"></span>
@@ -343,7 +314,7 @@
           </button>
           <div class="timeline-panel" id="panel-ats">
            <div class="timeline-panel-inner">
-      <div class="project-media gallery-wrap">
+      <div class="project-media gallery-wrap polaroid">
                 <div class="gallery-frame">
                   <div class="gallery">
                     <button type="button" class="slide"><img src="assets/img/ats-logo.png" alt="Nouveau logo ATS" loading="lazy"></button>
@@ -376,7 +347,8 @@
       </article>
 
       <article class="timeline-item reveal">
-        <div class="timeline-content">
+        <div class="timeline-content paper">
+          <span class="tape tl" aria-hidden="true"></span>
           <p class="timeline-date">Février à mai 2024</p>
           <div class="timeline-brand">
             <span class="timeline-logo"><img src="assets/logos/caulaincourt.png" alt="Logo Caulaincourt Paris" loading="lazy"></span>
@@ -388,7 +360,8 @@
       </article>
 
       <article class="timeline-item reveal">
-        <div class="timeline-content">
+        <div class="timeline-content paper">
+          <span class="tape tl" aria-hidden="true"></span>
           <p class="timeline-date">Avril à juin 2023</p>
           <div class="timeline-brand">
             <span class="timeline-logo"><img src="assets/logos/handivisible.jpg" alt="Logo Handivisible" loading="lazy"></span>
@@ -401,7 +374,7 @@
           </button>
           <div class="timeline-panel" id="panel-handivisible">
            <div class="timeline-panel-inner">
-      <div class="project-media">
+      <div class="project-media polaroid">
                 <img src="assets/img/handivisible-flyer.jpg" alt="Flyer de communication Handivisible et Babyvisible" loading="lazy" width="707" height="1000">
                 <p class="media-caption" aria-hidden="true">Flyer de communication Handivisible et Babyvisible</p>
               </div>
@@ -433,12 +406,13 @@
   <section class="section projets" id="projets">
    <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-num">03</span>
+      <span class="section-num">3</span>
       <h2>Projets universitaires</h2>
     </div>
+    <div class="board">
     <div class="project-grid">
 
-      <article class="project-card wide-card reveal" id="ia-na">
+      <article class="project-card wide-card paper pinned reveal" id="ia-na">
           <div class="project-head project-brand">
             <img class="project-brand-logo" src="assets/img/iana-logo.png" alt="Logo IA-NA" loading="lazy" width="400" height="400">
             <div>
@@ -475,7 +449,7 @@
         </div>
       </article>
 
-      <article class="project-card croustiche-card reveal" id="croustiche">
+      <article class="project-card croustiche-card paper pinned reveal" id="croustiche">
           <div class="project-head project-brand">
             <img class="project-brand-logo" src="assets/img/croustiche-logo.jpg" alt="Logo de Croustiche, un air fryer en toque de cuisinier" loading="lazy" width="400" height="400">
             <div>
@@ -513,12 +487,12 @@
         </div>
       </article>
 
-      <article class="project-card video-card reveal" id="la-rochelle">
+      <article class="project-card video-card paper pinned reveal" id="la-rochelle">
           <div class="project-head">
             <span class="project-tag">Montage vidéo</span>
             <h4>Vidéo promotionnelle de La Rochelle</h4>
           </div>
-        <div class="project-media">
+        <div class="project-media polaroid">
           <video controls preload="none" playsinline poster="assets/img/la-rochelle-poster.jpg"
                  width="540" height="960">
             <source src="assets/video/la-rochelle.mp4" type="video/mp4">
@@ -537,12 +511,12 @@
         </div>
       </article>
 
-      <article class="project-card reveal" id="astria">
+      <article class="project-card paper pinned reveal" id="astria">
           <div class="project-head">
             <span class="project-tag">Site e-commerce</span>
             <h4>Astria, marque de bijoux</h4>
           </div>
-        <div class="project-media gallery-wrap">
+        <div class="project-media gallery-wrap polaroid">
           <div class="gallery-frame">
             <div class="gallery">
               <button type="button" class="slide"><img src="assets/img/astria-home.jpg" alt="Site e-commerce Astria : Page d'accueil" loading="lazy"></button>
@@ -567,12 +541,12 @@
 
 
 
-      <article class="project-card reveal" data-delay="1" id="indesign">
+      <article class="project-card paper pinned reveal" data-delay="1" id="indesign">
           <div class="project-head">
             <span class="project-tag">Mise en page</span>
             <h4>Exercice de maquettage InDesign</h4>
           </div>
-        <div class="project-media gallery-wrap tall-gallery">
+        <div class="project-media gallery-wrap tall-gallery polaroid">
           <div class="gallery-frame">
             <div class="gallery">
               <button type="button" class="slide"><img src="assets/img/indesign-cover.jpg" alt="Exercice de mise en page InDesign" loading="lazy"></button>
@@ -596,6 +570,7 @@
       </article>
 
     </div>
+    </div>
    </div>
   </section>
 
@@ -603,23 +578,27 @@
   <section class="section passions" id="passions">
    <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-num">04</span>
+      <span class="section-num">4</span>
       <h2>Passions</h2>
     </div>
     <div class="passion-grid">
-      <figure class="passion-item reveal">
+      <figure class="passion-item polaroid reveal">
+        <span class="tape top" aria-hidden="true"></span>
         <img src="assets/img/passion-voyage.jpg" alt="Vue depuis un hublot d'avion au coucher du soleil" loading="lazy" width="750" height="1000">
         <figcaption>Voyage</figcaption>
       </figure>
-      <figure class="passion-item reveal" data-delay="1">
+      <figure class="passion-item polaroid reveal" data-delay="1">
+        <span class="tape top" aria-hidden="true"></span>
         <img src="assets/img/passion-mode.jpg" alt="Photo mode, manteau et sac en velours côtelé" loading="lazy" width="740" height="1000">
         <figcaption>Mode</figcaption>
       </figure>
-      <figure class="passion-item reveal" data-delay="2">
+      <figure class="passion-item polaroid reveal" data-delay="2">
+        <span class="tape top" aria-hidden="true"></span>
         <img src="assets/img/passion-patisserie.jpg" alt="Roulés à la cannelle glacés faits maison" loading="lazy" width="1000" height="750">
         <figcaption>Pâtisserie</figcaption>
       </figure>
-      <figure class="passion-item reveal" data-delay="3">
+      <figure class="passion-item polaroid reveal" data-delay="3">
+        <span class="tape top" aria-hidden="true"></span>
         <img src="assets/img/passion-broderie.jpg" alt="Broderie d'un visage fleuri sur tote bag en coton" loading="lazy" width="756" height="1000">
         <figcaption>Broderie</figcaption>
       </figure>
@@ -628,12 +607,15 @@
   </section>
 
   <!-- 06 CONTACT -->
-  <section class="section contact" id="contact">
+  <section class="section contact kraft-section" id="contact">
    <div class="wrap">
     <div class="contact-inner reveal">
-      <span class="section-num">05</span>
+      <span class="stamp" aria-hidden="true">CJ</span>
+      <span class="section-num">5</span>
+      <div>
       <h2>Discutons</h2>
       <p class="contact-lede">Disponible pour un CDI ou un CDD en marketing digital.<br>N'hésitez pas à me contacter.</p>
+      </div>
       <div class="contact-links">
         <a href="mailto:camille.jollant@outlook.fr" class="contact-link">
           <span class="contact-label">Email</span>
@@ -664,6 +646,6 @@
   <button class="lightbox-nav next" id="lightboxNext" aria-label="Visuel suivant">›</button>
 </div>
 
-<script src="script.js?v=65"></script>
+<script src="script.js?v=66"></script>
 </body>
 </html>
