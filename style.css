@@ -337,7 +337,7 @@ h1,h2,h3,h4{ margin:0; font-weight:400; text-wrap: balance; }
 /* Langues (papier déchiré) + outils (grande feuille) */
 .skills-row{ display:grid; grid-template-columns: 330px 1fr; gap: 48px; align-items:start; margin-top: 44px; }
 .profil-langues{ padding: 26px 28px 24px; --tilt: 1.8deg; }
-.profil-langues .block-label{ color: var(--rust); }
+.profil-langues .block-label{ color: var(--rust); font-size: 1rem; letter-spacing:.06em; }
 .lang-list{ display:flex; flex-direction:column; gap:14px; }
 .lang-list li{ display:grid; grid-template-columns: 1fr auto; gap: 6px 10px; }
 .lang-name{ font-size:.92rem; color: var(--ink-soft); }
