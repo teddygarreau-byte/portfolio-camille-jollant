@@ -245,8 +245,8 @@ h1,h2,h3,h4{ margin:0; font-weight:400; text-wrap: balance; }
   position:relative; padding: clamp(18px, 3.4vw, 40px);
   border: 16px solid transparent;
   border-image: linear-gradient(90deg, #C7A070, #DEBB90 30%, #C39B6C 55%, #D9B386 80%, #C49D6F) 1;
-  background: var(--cork) url("assets/img/liege.jpg") 0 0 / 320px;
-  box-shadow: inset 0 0 44px rgba(90,50,10,.28), 0 12px 30px rgba(60,40,20,.25);
+  background: var(--cork) url("assets/img/liege.jpg?v=3") 0 0 / 300px;
+  box-shadow: inset 0 0 26px rgba(90,50,10,.16), 0 12px 30px rgba(60,40,20,.25);
 }
 .board > *{ position:relative; z-index:1; }
 @media (max-width: 640px){ .board{ border-width: 10px; } }
