@@ -253,14 +253,15 @@ h1,h2,h3,h4{ margin:0; font-weight:400; text-wrap: balance; }
   background:
     url("assets/img/liege.jpg?v=3") 0 0 / 160px padding-box,
     linear-gradient(rgba(255,240,215,.18), rgba(0,0,0,0) 35%, rgba(0,0,0,0) 65%, rgba(60,30,8,.18)) border-box,
-    url("assets/img/bois-h.jpg?v=2") 0 0 / 800px 100% border-box;
+    url("assets/img/bois-h.jpg?v=3") 0 0 / 800px 48px repeat-x border-box,
+    url("assets/img/bois-h.jpg?v=3") 0 100% / 800px 48px repeat-x border-box;
   box-shadow: inset 0 0 0 1px rgba(60,30,8,.4), inset 0 0 26px rgba(90,50,10,.16),
               0 0 0 1px rgba(60,30,8,.3), 0 12px 30px rgba(60,40,20,.25);
 }
 .board::before, .board::after{
   content:""; position:absolute; top: calc(-1 * var(--cadre)); bottom: calc(-1 * var(--cadre));
   width: var(--cadre); z-index:0; pointer-events:none;
-  background: url("assets/img/bois-v.jpg?v=2") 0 0 / 100% 800px;
+  background: url("assets/img/bois-v.jpg?v=3") 0 0 / 48px 800px repeat-y;
 }
 .board::before{
   left: calc(-1 * var(--cadre));
@@ -306,10 +307,12 @@ h1,h2,h3,h4{ margin:0; font-weight:400; text-wrap: balance; }
 .profil-photo.polaroid:hover{ transform: rotate(0) translateY(-4px); box-shadow: 0 18px 34px rgba(50,30,10,.38); }
 .profil-photo img{ aspect-ratio: 1 / 1.08; object-fit: cover; object-position: 58% 40%; }
 
-.profil-text{ padding: 30px 34px 22px; transform: rotate(1deg); }
+.profil-text{ padding: 30px 34px 22px; transform: rotate(1deg); container-type: inline-size; }
 .profil-text.paper::before{ inset: -6px -4px; }
-.profil-seeking{
-  margin:0 0 14px; font-size: .86rem; font-weight: 700; text-transform: uppercase; letter-spacing:.04em; color: var(--ink);
+/* sur une seule ligne : la taille suit la largeur de la feuille (unités cqi) */
+.profil-text p.profil-seeking{
+  margin:0 0 14px; font-size: min(.86rem, 100cqi / 32.6); font-weight: 700; text-transform: uppercase; letter-spacing:.04em; color: var(--ink);
+  white-space: nowrap; text-align: left; hyphens: none; -webkit-hyphens: none;
 }
 .profil-text p{ color: var(--ink); font-size: .94rem; margin: 0 0 12px; text-align: justify; hyphens:auto; -webkit-hyphens:auto; }
 .profil-text .lede{ margin-top:0; }
@@ -587,4 +590,8 @@ body.lightbox-open{ overflow:hidden; }
 
 @media (max-width: 480px){
   .section-head{ gap:12px; padding: 10px 26px 10px 18px; margin-left:0; }
+}
+@media (max-width: 480px){
+  /* sur téléphone, une seule ligne serait illisible (< 8 px) : deux lignes équilibrées */
+  .profil-text p.profil-seeking{ white-space: normal; text-wrap: balance; font-size: .8rem; letter-spacing: .02em; }
 }
