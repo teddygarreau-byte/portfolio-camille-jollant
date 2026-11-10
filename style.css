@@ -607,3 +607,20 @@ body.lightbox-open{ overflow:hidden; }
 .board.sans-cadre{ border:0; padding:0; background:none; box-shadow:none; }
 .board.sans-cadre::before, .board.sans-cadre::after{ display:none; }
 @media (max-width: 700px){ .site-footer{ margin-top: -10px; } }
+
+/* Tableau 1, ordinateur : photo + langues à gauche, présentation à droite,
+   formation et outils côte à côte ; les feuilles se chevauchent un peu. */
+@media (min-width: 981px){
+  .profil-board{
+    display:grid; grid-template-columns: 330px 1fr; column-gap: 44px; align-items:start;
+    grid-template-areas: "photo texte" "langues texte" "formation texte" "formation outils";
+    grid-template-rows: auto auto 1fr auto;
+  }
+  .profil-board .profil-grid, .profil-board .skills-row{ display:contents; }
+  .profil-board .profil-photo{ grid-area: photo; }
+  .profil-board .profil-text{ grid-area: texte; }
+  .profil-board .profil-langues{ grid-area: langues; margin-top: -22px; z-index:2; }
+  .profil-board .formation-col{ grid-area: formation; margin: -4px 0 0 6px; max-width:none; padding: 22px 22px 20px; z-index:3; }
+  .profil-board .formation-grid{ flex-direction:column; align-items:center; gap: 20px; }
+  .profil-board .skills-card{ grid-area: outils; margin-top: -46px; z-index:3; }
+}
