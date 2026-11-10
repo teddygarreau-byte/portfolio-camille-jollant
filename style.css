@@ -492,7 +492,8 @@ p.gallery-caption, p.media-caption, .polaroid figcaption, .iana-media figcaption
 .project-card .project-media.polaroid{ max-width: 92%; }
 .project-card .project-media > img, .project-card .project-media > video{ aspect-ratio: 3 / 2; object-fit: contain; }
 .video-card .project-media.polaroid{ max-width: 320px; }
-.video-card video{ aspect-ratio: 9 / 16; object-fit: cover; }
+/* la vidéo verticale garde son format 9:16 : le cadre blanc épouse la vidéo */
+.project-card.video-card .project-media > video{ height:auto; aspect-ratio: 9 / 16; object-fit: cover; background:#FFFFFF; }
 
 /* plusieurs visuels : une rangée de polaroids, chacun légèrement de travers */
 .iana-media, .croustiche-videos{ display:flex; flex-wrap:wrap; gap: 22px; justify-content:center; padding: 6px 0 14px; }
