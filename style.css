@@ -570,7 +570,7 @@ p.gallery-caption, p.media-caption, .polaroid figcaption, .iana-media figcaption
 
 /* Signature en bas de la carte postale (ancien pied de page) */
 .site-footer{
-  grid-column: 1 / -1; text-align:center; margin-top: 30px; padding-top: 18px;
+  grid-column: 1 / -1; text-align:center; margin-top: 4px; padding-top: 14px;
   border-top: 1px solid rgba(169,85,58,.3);
   font-family: var(--f-serif); font-style: italic; color: var(--ink-soft); font-size: 1.05rem;
 }
@@ -606,3 +606,4 @@ body.lightbox-open{ overflow:hidden; }
 /* Point 3 : essai sans tableau, les feuilles directement sur le papier peint */
 .board.sans-cadre{ border:0; padding:0; background:none; box-shadow:none; }
 .board.sans-cadre::before, .board.sans-cadre::after{ display:none; }
+@media (max-width: 700px){ .site-footer{ margin-top: -10px; } }
