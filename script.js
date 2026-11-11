@@ -65,26 +65,81 @@
   });
 
   /* ---------- Dépliants du parcours ---------- */
-  document.querySelectorAll(".timeline-toggle").forEach(function(btn){
-    var item = btn.closest(".timeline-item");
-    var panel = document.getElementById(btn.getAttribute("aria-controls"));
-    var label = btn.querySelector(".toggle-label");
-    if (!item || !panel) return;
+  /* ---------- Projets professionnels : dossiers et feuille ----------
+     Un clic sur le dossier (ou sur « Voir le projet ») fait sortir une feuille
+     du dossier, par-dessus le site flouté. « Fermer », Échap ou un clic à côté
+     la range dans son dossier. Le contenu de la feuille est déplacé (et non
+     copié) pour garder les galeries fonctionnelles. */
+  var voile = document.getElementById("feuilleVoile");
+  if (voile){
+    var feuille = voile.querySelector(".feuille");
+    var corps = voile.querySelector(".feuille-corps");
+    var fermer = voile.querySelector(".feuille-fermer");
+    var dossierOuvert = null, contenuOuvert = null, enCours = false;
+    var DUREE = reduceMotion ? 0 : 520;
 
-    /* replié : hors du parcours de tabulation et du lecteur d'écran */
-    panel.setAttribute("inert", "");
+    /* transform qui place la feuille sur le dossier (point de départ / d'arrivée) */
+    var surLeDossier = function(dossier){
+      var d = dossier.getBoundingClientRect(), f = feuille.getBoundingClientRect();
+      var s = Math.min(.42, d.width / f.width);
+      var dx = (d.left + d.width / 2) - (f.left + f.width / 2);
+      var dy = (d.top + d.height * .45) - (f.top + f.height / 2);
+      return "translate(" + dx + "px," + dy + "px) scale(" + s + ") rotate(-3deg)";
+    };
 
-    btn.addEventListener("click", function(){
-      var open = !item.classList.contains("open");
-      item.classList.toggle("open", open);
-      btn.setAttribute("aria-expanded", String(open));
-      if (label) label.textContent = open ? "Masquer le projet" : "Voir le projet";
-      if (open) panel.removeAttribute("inert");
-      else panel.setAttribute("inert", "");
-      /* la galerie doit se remesurer une fois le panneau ouvert */
-      if (open) window.dispatchEvent(new Event("resize"));
+    var ouvrir = function(dossier){
+      if (enCours || dossierOuvert) return;
+      var contenu = document.getElementById(dossier.getAttribute("data-feuille"));
+      if (!contenu) return;
+      enCours = true; dossierOuvert = dossier; contenuOuvert = contenu;
+      contenu.hidden = false; corps.appendChild(contenu);
+      voile.hidden = false; corps.scrollTop = 0; feuille.scrollTop = 0;
+      document.body.classList.add("feuille-ouverte");
+      dossier.classList.add("dossier--vide");
+      feuille.style.transition = "none";
+      feuille.style.transform = surLeDossier(dossier);
+      feuille.style.opacity = "0";
+      void feuille.offsetWidth;
+      voile.classList.add("ouvert");
+      feuille.style.transition = "";
+      feuille.style.transform = "";
+      feuille.style.opacity = "";
+      setTimeout(function(){ enCours = false; fermer.focus({ preventScroll: true }); }, DUREE);
+      window.dispatchEvent(new Event("resize"));
+    };
+
+    var refermer = function(){
+      if (enCours || !dossierOuvert) return;
+      enCours = true;
+      var dossier = dossierOuvert;
+      feuille.style.transform = surLeDossier(dossier);
+      feuille.style.opacity = "0";
+      voile.classList.remove("ouvert");
+      setTimeout(function(){
+        voile.hidden = true;
+        feuille.style.transition = "none"; feuille.style.transform = ""; feuille.style.opacity = "";
+        contenuOuvert.hidden = true; dossier.appendChild(contenuOuvert);
+        dossier.classList.remove("dossier--vide");
+        document.body.classList.remove("feuille-ouverte");
+        var btn = dossier.querySelector(".dossier-voir");
+        if (btn) btn.focus({ preventScroll: true });
+        dossierOuvert = contenuOuvert = null; enCours = false;
+        void feuille.offsetWidth; feuille.style.transition = "";
+      }, DUREE);
+    };
+
+    document.querySelectorAll(".dossier--projet").forEach(function(dossier){
+      dossier.addEventListener("click", function(e){
+        if (e.target.closest(".feuille-contenu")) return;
+        ouvrir(dossier);
+      });
     });
-  });
+    fermer.addEventListener("click", refermer);
+    voile.addEventListener("click", function(e){ if (e.target === voile) refermer(); });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape" && dossierOuvert && !document.body.classList.contains("lightbox-open")) refermer();
+    });
+  }
 
   /* ---------- Active nav link on scroll (scrollspy) ---------- */
   var navLinks = Array.prototype.slice.call(document.querySelectorAll('.main-nav a[data-nav]'));
@@ -327,7 +382,7 @@
   });
 
   /* ---------- Apparition en cascade dans les grilles ---------- */
-  [".passion-grid", ".project-grid", ".timeline"].forEach(function(sel){
+  [".passion-grid", ".project-grid"].forEach(function(sel){
     document.querySelectorAll(sel).forEach(function(group){
       Array.prototype.forEach.call(group.children, function(child, i){
         child.classList.add("reveal");

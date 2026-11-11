@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=121">
+<link rel="stylesheet" href="style.css?v=122">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22 font-family=%22sans-serif%22 font-weight=%22bold%22>C</text></svg>">
 </head>
 <body>
@@ -237,30 +237,21 @@
 
 
   <!-- 03 PARCOURS -->
-  <section class="section parcours kraft-section" id="parcours">
+  <section class="section parcours" id="parcours">
    <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">2</span>
       <h2>Projets professionnels</h2>
     </div>
 
-    <div class="timeline">
+    <div class="dossiers">
 
-      <article class="timeline-item reveal">
-        <div class="timeline-content paper">
-          <span class="tape tl" aria-hidden="true"></span>
-          <p class="timeline-date">Sept. 2025 à août 2026</p>
-          <div class="timeline-brand">
-            <span class="timeline-logo"><img src="assets/logos/lea-nature.png" alt="Logo Léa Nature" loading="lazy"></span>
-            <h4>Léa Nature</h4>
-          </div>
-          <p class="timeline-place">Périgny · Alternante</p>
-          <p>Conception et mise à jour de supports de formation pour les équipes internes, sur les marques Eau Thermale Jonzac, Natessance et Bo-ho.</p>
-          <button class="timeline-toggle" aria-expanded="false" aria-controls="panel-jonzac">
-            <span class="toggle-label">Voir le projet</span>
-          </button>
-          <div class="timeline-panel" id="panel-jonzac">
-           <div class="timeline-panel-inner">
+      <article class="dossier dossier--jaune dossier--projet" data-feuille="feuille-jonzac">
+        <div class="dossier-tete"><span class="dossier-type">Alternance</span><span class="dossier-dates">Sept 2025 - Août 2026</span></div>
+        <h3 class="dossier-titre">Léa Nature</h3>
+        <p class="dossier-texte">Conception et mise à jour de supports de formation pour les équipes internes, sur les marques Eau Thermale Jonzac, Natessance et Bo-ho.</p>
+        <button type="button" class="dossier-voir" aria-haspopup="dialog">Voir le projet</button>
+        <div class="feuille-contenu" id="feuille-jonzac" hidden>
       <div class="project-media gallery-wrap polaroid">
                 <div class="gallery-frame">
                   <div class="gallery">
@@ -289,26 +280,15 @@
                 <div><dt>Livrables</dt><dd>Supports de formation interactifs</dd></div>
               </dl>
             </div>
-           </div>
-          </div>
         </div>
       </article>
 
-      <article class="timeline-item reveal">
-        <div class="timeline-content paper">
-          <span class="tape tl" aria-hidden="true"></span>
-          <p class="timeline-date">Avril à juillet 2025</p>
-          <div class="timeline-brand">
-            <span class="timeline-logo"><img src="assets/logos/ats.png" alt="Logo ATS" loading="lazy"></span>
-            <h4>ATS-ATPE</h4>
-          </div>
-          <p class="timeline-place">Noisy-le-Sec · Stagiaire</p>
-          <p>Création de contenus digitaux, animation de la page LinkedIn, montage vidéo, refonte de la plaquette commerciale et création d'un nouveau logo.</p>
-          <button class="timeline-toggle" aria-expanded="false" aria-controls="panel-ats">
-            <span class="toggle-label">Voir le projet</span>
-          </button>
-          <div class="timeline-panel" id="panel-ats">
-           <div class="timeline-panel-inner">
+      <article class="dossier dossier--vert dossier--projet" data-feuille="feuille-ats">
+        <div class="dossier-tete"><span class="dossier-type">Stage</span><span class="dossier-dates">Avril - Juillet 2025</span></div>
+        <h3 class="dossier-titre">ATS-ATPE</h3>
+        <p class="dossier-texte">Création de contenus digitaux, animation de la page LinkedIn, montage vidéo, refonte de la plaquette commerciale et création d'un nouveau logo.</p>
+        <button type="button" class="dossier-voir" aria-haspopup="dialog">Voir le projet</button>
+        <div class="feuille-contenu" id="feuille-ats" hidden>
       <div class="project-media gallery-wrap polaroid">
                 <div class="gallery-frame">
                   <div class="gallery">
@@ -336,39 +316,21 @@
                 <div><dt>Livrables</dt><dd>Logo, déclinaisons, plaquette, visuels LinkedIn</dd></div>
               </dl>
             </div>
-           </div>
-          </div>
         </div>
       </article>
 
-      <article class="timeline-item reveal">
-        <div class="timeline-content paper">
-          <span class="tape tl" aria-hidden="true"></span>
-          <p class="timeline-date">Février à mai 2024</p>
-          <div class="timeline-brand">
-            <span class="timeline-logo"><img src="assets/logos/caulaincourt.png" alt="Logo Caulaincourt Paris" loading="lazy"></span>
-            <h4>Caulaincourt Paris</h4>
-          </div>
-          <p class="timeline-place">Paris · Stagiaire</p>
-          <p>Collecte de données, développement et gestion d'un nouveau projet dédié à la seconde main.</p>
-        </div>
+      <article class="dossier dossier--rose">
+        <div class="dossier-tete"><span class="dossier-type">Stage</span><span class="dossier-dates">Février - Mai 2024</span></div>
+        <h3 class="dossier-titre">Caulaincourt Paris</h3>
+        <p class="dossier-texte">Collecte de données, développement et gestion d'un nouveau projet dédié à la seconde main.</p>
       </article>
 
-      <article class="timeline-item reveal">
-        <div class="timeline-content paper">
-          <span class="tape tl" aria-hidden="true"></span>
-          <p class="timeline-date">Avril à juin 2023</p>
-          <div class="timeline-brand">
-            <span class="timeline-logo"><img src="assets/logos/handivisible.jpg" alt="Logo Handivisible" loading="lazy"></span>
-            <h4>Handivisible</h4>
-          </div>
-          <p class="timeline-place">Troyes · Stagiaire</p>
-          <p>Gestion stratégique des réseaux sociaux, création et planification de contenus, analyse des performances, veille concurrentielle et prospection.</p>
-          <button class="timeline-toggle" aria-expanded="false" aria-controls="panel-handivisible">
-            <span class="toggle-label">Voir le projet</span>
-          </button>
-          <div class="timeline-panel" id="panel-handivisible">
-           <div class="timeline-panel-inner">
+      <article class="dossier dossier--caramel dossier--projet" data-feuille="feuille-handivisible">
+        <div class="dossier-tete"><span class="dossier-type">Stage</span><span class="dossier-dates">Avril - Juin 2023</span></div>
+        <h3 class="dossier-titre">Handivisible</h3>
+        <p class="dossier-texte">Gestion stratégique des réseaux sociaux, création et planification de contenus, analyse des performances, veille concurrentielle et prospection.</p>
+        <button type="button" class="dossier-voir" aria-haspopup="dialog">Voir le projet</button>
+        <div class="feuille-contenu" id="feuille-handivisible" hidden>
       <div class="project-media polaroid">
                 <img src="assets/img/handivisible-flyer.jpg" alt="Flyer de communication Handivisible et Babyvisible" loading="lazy" width="707" height="1000">
                 <p class="media-caption" aria-hidden="true">Flyer de communication Handivisible et Babyvisible</p>
@@ -387,8 +349,6 @@
                 <div><dt>Livrables</dt><dd>Flyer partenaires, contenus social media</dd></div>
               </dl>
             </div>
-           </div>
-          </div>
         </div>
       </article>
 
@@ -635,6 +595,13 @@
 
 </main>
 
+<div class="feuille-voile" id="feuilleVoile" hidden>
+  <div class="feuille" role="dialog" aria-modal="true" aria-label="Détails du projet" tabindex="-1">
+    <button type="button" class="feuille-fermer">Fermer <span class="feuille-croix" aria-hidden="true">×</span></button>
+    <div class="feuille-corps"></div>
+  </div>
+</div>
+
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visuel agrandi" hidden>
   <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">×</button>
   <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Visuel précédent">‹</button>
@@ -645,6 +612,6 @@
   <button class="lightbox-nav next" id="lightboxNext" aria-label="Visuel suivant">›</button>
 </div>
 
-<script src="script.js?v=76"></script>
+<script src="script.js?v=77"></script>
 </body>
 </html>
