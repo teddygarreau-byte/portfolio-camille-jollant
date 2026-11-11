@@ -498,6 +498,10 @@
      et le bas de la page sont prêts avant qu'on y arrive — plus d'image qui
      apparaît en retard ou de cadre vide. */
   window.addEventListener("load", function(){
+    /* aperçus des vidéos : posés une fois la page affichée */
+    document.querySelectorAll("video[data-poster]").forEach(function(v){
+      v.setAttribute("poster", v.getAttribute("data-poster"));
+    });
     var restantes = Array.prototype.slice.call(document.querySelectorAll('img[loading="lazy"]'));
     var lot = function(){
       restantes.splice(0, 4).forEach(function(img){ img.loading = "eager"; img.decoding = "async"; });
