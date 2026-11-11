@@ -677,7 +677,7 @@ body.lightbox-open{ overflow:hidden; }
    pose sur le rabat avant. Les dossiers avec un projet s'ouvrent au clic. */
 .dossiers{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 76px 96px; max-width: 980px; margin: 0 auto; }
 /* plus d'air autour des dossiers : sous le titre de la partie et avant la partie 3 */
-.parcours .section-head{ margin-bottom: 64px; }
+.parcours .section-head{ margin-bottom: 110px; }
 .section.parcours{ padding-bottom: 120px; }
 .dossier{
   position:relative; aspect-ratio: 714 / 576;
@@ -705,7 +705,7 @@ body.lightbox-open{ overflow:hidden; }
 .feuille-contenu[hidden]{ display:none; }
 @media (max-width: 760px){
   .dossiers{ grid-template-columns: 1fr; max-width: 430px; gap: 48px; }
-  .parcours .section-head{ margin-bottom: 44px; }
+  .parcours .section-head{ margin-bottom: 70px; }
   .section.parcours{ padding-bottom: 90px; }
 }
 @media (max-width: 400px){
