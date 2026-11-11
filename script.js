@@ -3,6 +3,14 @@
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Au chargement (ou au rafraîchissement), on arrive toujours en haut de la
+     page d'accueil : le navigateur ne restaure pas l'ancienne position, et
+     une ancre éventuelle (#contact…) est retirée de l'adresse. */
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  window.scrollTo(0, 0);
+  window.addEventListener("pageshow", function(){ window.scrollTo(0, 0); });
+
   /* ---------- Header state on scroll + progress bar ---------- */
   var header = document.getElementById("siteHeader");
   var progressBar = document.getElementById("progressBar");
