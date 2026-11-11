@@ -328,8 +328,13 @@ h1,h2,h3,h4{ margin:0; font-weight:400; text-wrap: balance; }
 .profil-text .lede{ margin-top:0; }
 .profil-focus{ margin-top: 20px; }
 .focus-list{ display:grid; grid-template-columns: 1fr 1fr; gap: 6px 22px; }
-.focus-list li{ position:relative; padding-left:16px; font-size:.88rem; }
-.focus-list li::before{ content:""; position:absolute; left:0; top:.62em; width:6px; height:6px; border-radius:50%; background: var(--rust); }
+.focus-list li{ position:relative; padding-left:20px; font-size:.88rem; }
+/* coche de validation, tracée en CSS (couleur terracotta) */
+.focus-list li::before{
+  content:""; position:absolute; left:3px; top:.22em; width:5px; height:10px;
+  border-right: 2px solid var(--rust); border-bottom: 2px solid var(--rust);
+  transform: rotate(42deg); border-radius: 0 0 1px 0;
+}
 @media (max-width: 640px){ .focus-list{ grid-template-columns: 1fr; } }
 
 /* Formation : bande kraft centrée, logos sur une ligne */
