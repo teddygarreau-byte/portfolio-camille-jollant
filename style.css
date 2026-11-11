@@ -668,24 +668,25 @@ body.lightbox-open{ overflow:hidden; }
 
 
 
-/* Titres de section : le ruban (avec son titre) vient se coller sur la page.
-   Il arrive « tenu en l'air » (plus grand, plus incliné), se plaque avec un
-   léger écrasement, puis un reflet glisse dessus comme un doigt qui le lisse.
+/* Titres de section : le ruban (avec son titre) se déroule et se colle de
+   gauche à droite, puis un reflet le parcourt dans le même sens, comme un
+   doigt qui le lisse.
    La classe js-anim n'est posée que si le script tourne : sans lui, les
    titres restent simplement visibles. */
 .section-head::after{
   content:""; position:absolute; inset:0; pointer-events:none; opacity:0;
   background: linear-gradient(100deg, transparent 0 35%, rgba(255,255,255,.42) 50%, transparent 65% 100%) 0 0 / 250% 100% no-repeat;
 }
-html.js-anim .section-head.reveal:not(.in-view){ opacity:0; transform: translate(-20px,-34px) rotate(-6deg) scale(1.15); }
-html.js-anim .section-head.reveal.in-view{ animation: scotcher .8s var(--ease-out) both; }
-html.js-anim .section-head.reveal.in-view::after{ animation: lisser .7s ease-out .42s both; }
+html.js-anim .section-head.reveal:not(.in-view){ clip-path: inset(-30% 100% -30% -12%); }
+html.js-anim .section-head.reveal.in-view{ animation: scotcher .95s cubic-bezier(.45,.05,.3,1) both; }
+html.js-anim .section-head.reveal.in-view::after{ animation: lisser .8s ease-in-out .35s both; }
+/* le ruban se déroule et se colle de gauche à droite, légèrement soulevé,
+   puis se plaque ; les marges négatives évitent de rogner les bords déchirés */
 @keyframes scotcher{
-  0%  { opacity:0; transform: translate(-20px,-34px) rotate(-6deg) scale(1.15); }
-  45% { opacity:1; transform: translate(0,3px) rotate(-1.1deg) scale(1.015); }
-  62% { transform: translate(0,0) rotate(-1.5deg) scale(.99, 1.015); }
-  80% { transform: rotate(-1.35deg) scale(1.004); }
-  100%{ opacity:1; transform: rotate(-1.4deg) scale(1); }
+  0%  { clip-path: inset(-30% 100% -30% -12%); transform: translateY(-5px) rotate(-1.4deg); }
+  72% { clip-path: inset(-30% -12% -30% -12%); transform: translateY(-1px) rotate(-1.4deg); }
+  86% { transform: translateY(0) rotate(-1.4deg) scale(1, 1.012); }
+  100%{ clip-path: inset(-30% -12% -30% -12%); transform: rotate(-1.4deg); }
 }
 @keyframes lisser{
   0%  { opacity:1; background-position: 100% 0; }
