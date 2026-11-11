@@ -749,3 +749,53 @@ body.feuille-ouverte{ overflow:hidden; }
 @media (prefers-reduced-motion: reduce){
   .feuille, .feuille-voile, .dossier--projet{ transition:none; }
 }
+
+/* =========================================================
+   VERSION TÉLÉPHONE : plus compacte, moins de défilement
+   ========================================================= */
+@media (max-width: 640px){
+  /* papier « Recherche un CDI… » : police réduite */
+  .profil-text p{ font-size: .84rem; line-height: 1.55; }
+  .focus-list li{ font-size: .8rem; }
+
+  /* outils : WordPress et Google Ads tiennent sur la même ligne */
+  .skills-card .tool-list{ gap: 8px 12px; }
+  .skills-card .tool-list li{ gap: 7px; }
+  .skills-card .tool-name{ font-size: .8rem; }
+
+  /* feuille de projet : police réduite pour en voir davantage d'un coup */
+  .feuille{ padding: 50px 16px 24px; }
+  .feuille .panel-body h4{ font-size: 1.2rem; margin-bottom: 8px; }
+  .feuille .panel-body p{ font-size: .8rem; line-height: 1.5; margin-bottom: 9px; }
+  .feuille .project-credits{ font-size: .78rem; }
+  .feuille .project-media{ max-width: 290px; margin: 0 auto; }
+  .feuille .project-media > img{ max-height: 42vh; width: auto; margin: 0 auto; }
+
+  /* partie 3 : visuels côte à côte et plus petits, texte resserré */
+  .project-info p{ font-size: .84rem; line-height: 1.5; }
+  .iana-media, .croustiche-videos{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; justify-items:center; }
+  .iana-media figure, .croustiche-videos figure{ width: 100%; padding: 6px 6px 26px; }
+  .iana-media figure:nth-child(3){ grid-column: 1 / -1; width: 50%; }
+  .iana-media figcaption, .croustiche-videos figcaption{ font-size: .68rem; bottom: 7px; left:6px; right:6px; }
+  .video-card .project-media.polaroid{ max-width: 190px; margin-left:auto; margin-right:auto; }
+
+  /* passions : voyage + mode, puis pâtisserie + broderie */
+  .passion-grid{ grid-template-columns: 1fr 1fr; max-width: none; gap: 18px 14px; }
+  .passion-item figcaption{ font-size: .95rem; bottom: 9px; }
+  .passion-item.polaroid{ padding: 7px 7px 32px; }
+
+  /* « Discutons » en forme de lettre : enveloppe avec son rabat */
+  .contact-inner{
+    padding: 92px 22px 24px; gap: 22px;
+    background:
+      linear-gradient(to bottom right, transparent calc(50% - .6px), rgba(169,85,58,.16) 50%, transparent calc(50% + .6px)) 0 100% / 50% 42% no-repeat,
+      linear-gradient(to bottom left,  transparent calc(50% - .6px), rgba(169,85,58,.16) 50%, transparent calc(50% + .6px)) 100% 100% / 50% 42% no-repeat,
+      #FFFDF8;
+  }
+  .contact-inner::before{
+    inset: 0 0 auto 0; height: 74px; border: 0;
+    background: linear-gradient(#F4EADC, #EEE2D0);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+  }
+  .stamp{ top: 12px; right: 14px; z-index: 2; }
+}
