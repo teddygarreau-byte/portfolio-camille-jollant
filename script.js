@@ -491,4 +491,21 @@
     }, { passive: true });
   }
 
+  /* ---------- Chargement des images en arrière-plan ----------
+     Une fois la page affichée, toutes les images encore « différées » sont
+     chargées discrètement, par petits lots : les visuels des galeries (y
+     compris ceux qui ne sont pas encore affichés), les feuilles des dossiers
+     et le bas de la page sont prêts avant qu'on y arrive — plus d'image qui
+     apparaît en retard ou de cadre vide. */
+  window.addEventListener("load", function(){
+    var restantes = Array.prototype.slice.call(document.querySelectorAll('img[loading="lazy"]'));
+    var lot = function(){
+      restantes.splice(0, 4).forEach(function(img){ img.loading = "eager"; img.decoding = "async"; });
+      if (!restantes.length) return;
+      if (window.requestIdleCallback) requestIdleCallback(lot, { timeout: 800 });
+      else setTimeout(lot, 250);
+    };
+    setTimeout(lot, 600);
+  });
+
 })();
