@@ -784,18 +784,14 @@ body.feuille-ouverte{ overflow:hidden; }
   .passion-item figcaption{ font-size: .95rem; bottom: 9px; }
   .passion-item.polaroid{ padding: 7px 7px 32px; }
 
-  /* « Discutons » en forme de lettre : enveloppe avec son rabat */
-  .contact-inner{
-    padding: 92px 22px 24px; gap: 22px;
-    background:
-      linear-gradient(to bottom right, transparent calc(50% - .6px), rgba(169,85,58,.16) 50%, transparent calc(50% + .6px)) 0 100% / 50% 42% no-repeat,
-      linear-gradient(to bottom left,  transparent calc(50% - .6px), rgba(169,85,58,.16) 50%, transparent calc(50% + .6px)) 100% 100% / 50% 42% no-repeat,
-      #FFFDF8;
-  }
-  .contact-inner::before{
-    inset: 0 0 auto 0; height: 74px; border: 0;
-    background: linear-gradient(#F4EADC, #EEE2D0);
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-  }
-  .stamp{ top: 12px; right: 14px; z-index: 2; }
+  /* « Discutons » : même carte qu'avant, en rectangle couché (plus large que
+     haut) — disposition en deux colonnes comme sur ordinateur, textes réduits */
+  .contact-inner{ grid-template-columns: 1fr 1.08fr; gap: 0 14px; padding: 26px 16px 16px; align-items:center; }
+  .contact-inner h2{ font-size: 1.75rem; margin-bottom: 8px; }
+  .contact-lede{ font-size: .74rem; line-height: 1.5; }
+  .contact-links{ border-top:none; border-left: 1px solid rgba(169,85,58,.3); padding: 30px 0 0 12px; gap: 10px; }
+  .contact-label{ font-size: .58rem; }
+  .contact-value{ font-size: .86rem; white-space: nowrap; overflow-wrap: normal; }
+  .site-footer{ margin-top: 14px; padding-top: 10px; font-size: .82rem; }
+  .stamp{ width: 38px; top: 12px; right: 12px; }
 }
