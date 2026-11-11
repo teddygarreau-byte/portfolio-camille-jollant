@@ -783,6 +783,7 @@ body.feuille-ouverte{ overflow:hidden; }
   .passion-grid{ grid-template-columns: 1fr 1fr; max-width: none; gap: 18px 14px; }
   .passion-item figcaption{ font-size: .95rem; bottom: 9px; }
   .passion-item.polaroid{ padding: 7px 7px 32px; }
+  .passion-item .tape.top{ width: 76px; height: 19px; top: -9px; }
 
   /* « Discutons » : même carte qu'avant, en rectangle couché (plus large que
      haut) — disposition en deux colonnes comme sur ordinateur, textes réduits */
