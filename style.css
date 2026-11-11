@@ -675,7 +675,10 @@ body.lightbox-open{ overflow:hidden; }
 /* ---------- 2. Projets professionnels : dossiers de classement ----------
    Le visuel du dossier (décliné en 4 couleurs) sert de fond ; le texte se
    pose sur le rabat avant. Les dossiers avec un projet s'ouvrent au clic. */
-.dossiers{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 60px; max-width: 920px; margin: 0 auto; }
+.dossiers{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 76px 96px; max-width: 980px; margin: 0 auto; }
+/* plus d'air autour des dossiers : sous le titre de la partie et avant la partie 3 */
+.parcours .section-head{ margin-bottom: 64px; }
+.section.parcours{ padding-bottom: 120px; }
 .dossier{
   position:relative; aspect-ratio: 714 / 576;
   background: url("assets/img/dossier-jaune.png") 0 0 / 100% 100% no-repeat;
@@ -689,10 +692,10 @@ body.lightbox-open{ overflow:hidden; }
 .dossier-tete{ width:100%; display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom: 5%; }
 .dossier-type{ font-family: var(--f-hand); font-style:italic; font-weight:500; font-size: 1.15rem; color: var(--rust); }
 .dossier-dates{ font-size: .8rem; color: rgba(143,70,48,.85); white-space:nowrap; }
-.dossier-titre{ margin: 0 0 4%; font-family: var(--f-serif); font-weight:400; text-transform: uppercase; font-size: clamp(1.6rem, 3.1vw, 2.25rem); line-height:1; letter-spacing:.01em; color: var(--rust); }
-.dossier-texte{ margin:0; font-size: .86rem; line-height:1.5; color: var(--ink); text-wrap: balance; }
+.dossier-titre{ margin: auto 0 4%; font-family: var(--f-serif); font-weight:400; text-transform: uppercase; font-size: clamp(1.6rem, 3.1vw, 2.25rem); line-height:1; letter-spacing:.01em; color: var(--rust); }
+.dossier-texte{ margin:0 0 auto; font-size: .86rem; line-height:1.5; color: var(--ink); text-wrap: balance; }
 .dossier-voir{
-  margin-top: auto; padding: 10px 4px 0; background:none; border:0; cursor:pointer;
+  margin-top: 8px; padding: 10px 4px 0; background:none; border:0; cursor:pointer;
   font: 700 .8rem/1 var(--f-sans); letter-spacing:.06em; text-transform: uppercase; color: var(--rust);
   text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px;
 }
@@ -701,7 +704,9 @@ body.lightbox-open{ overflow:hidden; }
 .dossier--projet:hover .dossier-voir{ color: var(--rust-deep); }
 .feuille-contenu[hidden]{ display:none; }
 @media (max-width: 760px){
-  .dossiers{ grid-template-columns: 1fr; max-width: 430px; gap: 34px; }
+  .dossiers{ grid-template-columns: 1fr; max-width: 430px; gap: 48px; }
+  .parcours .section-head{ margin-bottom: 44px; }
+  .section.parcours{ padding-bottom: 90px; }
 }
 @media (max-width: 400px){
   .dossier{ padding-top: 14.5%; }
