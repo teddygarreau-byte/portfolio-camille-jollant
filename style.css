@@ -755,7 +755,12 @@ body.feuille-ouverte{ overflow:hidden; }
    ========================================================= */
 @media (max-width: 640px){
   /* papier « Recherche un CDI… » : police réduite */
-  .profil-text p{ font-size: .84rem; line-height: 1.55; }
+  /* présentation : de « Recherche un CDI… » à « …de bout en bout. » visible d'un
+     seul écran (texte plus large, lignes plus serrées, police un peu réduite) */
+  .profil-board{ padding: 10px; }
+  .profil-text{ padding: 20px 14px 16px; }
+  .profil-text p{ font-size: .78rem; line-height: 1.45; margin-bottom: 8px; }
+  .profil-text p.profil-seeking{ margin-bottom: 8px; }
   .focus-list li{ font-size: .8rem; }
 
   /* outils : WordPress et Google Ads tiennent sur la même ligne */
