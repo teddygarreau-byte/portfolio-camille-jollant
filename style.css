@@ -761,6 +761,7 @@ body.feuille-ouverte{ overflow:hidden; }
   .profil-text{ padding: 20px 14px 16px; }
   .profil-text p{ font-size: .78rem; line-height: 1.45; margin-bottom: 8px; }
   .profil-text p.profil-seeking{ margin-bottom: 8px; }
+  .profil-focus .block-label{ font-size: min(.74rem, 100cqi / 22.8); letter-spacing: .04em; white-space: nowrap; }
   .focus-list li{ font-size: .8rem; }
 
   /* outils : WordPress et Google Ads tiennent sur la même ligne */
