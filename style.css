@@ -578,7 +578,7 @@ p.gallery-caption, p.media-caption, .polaroid figcaption, .iana-media figcaption
 
 /* Signature en bas de la carte postale (ancien pied de page) */
 .site-footer{
-  grid-column: 1 / -1; text-align:center; margin-top: 4px; padding-top: 14px;
+  grid-column: 1 / -1; text-align:center; margin-top: 52px; padding-top: 22px;
   border-top: 1px solid rgba(169,85,58,.3);
   font-family: var(--f-serif); font-style: italic; color: var(--ink-soft); font-size: 1.05rem;
 }
