@@ -109,14 +109,6 @@
       var contenu = document.getElementById(dossier.getAttribute("data-feuille"));
       if (!contenu) return;
       enCours = true; dossierOuvert = dossier; contenuOuvert = contenu;
-      var texte = dossier.querySelector(".dossier-texte");
-      if (texte && !dossier.hasAttribute("data-sans-missions")){
-        var missions = document.createElement("div");
-        missions.className = "feuille-missions";
-        missions.innerHTML = '<span class="project-tag">Missions</span><p></p>';
-        missions.querySelector("p").textContent = texte.textContent;
-        corps.appendChild(missions);
-      }
       contenu.hidden = false; corps.appendChild(contenu);
       voile.hidden = false; corps.scrollTop = 0; feuille.scrollTop = 0;
       document.body.classList.add("feuille-ouverte");
@@ -144,7 +136,6 @@
         voile.hidden = true;
         feuille.style.transition = "none"; feuille.style.transform = ""; feuille.style.opacity = "";
         contenuOuvert.hidden = true; dossier.appendChild(contenuOuvert);
-        var m = corps.querySelector(".feuille-missions"); if (m) m.remove();
         dossier.classList.remove("dossier--vide");
         document.body.classList.remove("feuille-ouverte");
         var btn = dossier.querySelector(".dossier-voir");
@@ -154,12 +145,9 @@
       }, DUREE);
     };
 
-    /* sur téléphone, Caulaincourt s'ouvre aussi (pour lire ses missions) */
-    var telephone = window.matchMedia("(max-width: 640px)");
-    document.querySelectorAll(".dossier[data-feuille]").forEach(function(dossier){
+    document.querySelectorAll(".dossier--projet").forEach(function(dossier){
       dossier.addEventListener("click", function(e){
         if (e.target.closest(".feuille-contenu")) return;
-        if (!dossier.classList.contains("dossier--projet") && !telephone.matches) return;
         ouvrir(dossier);
       });
     });

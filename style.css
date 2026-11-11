@@ -825,22 +825,3 @@ body.feuille-ouverte{ overflow:hidden; }
   .site-footer{ margin-top: 14px; padding-top: 10px; font-size: .82rem; }
   .stamp{ width: 38px; top: 12px; right: 12px; }
 }
-
-/* Dossiers : année courte et missions en tête de feuille, réservées au téléphone */
-.dossier-annee, .feuille-missions{ display:none; }
-.dossier--mobile .dossier-voir{ display:none; }
-@media (max-width: 640px){
-  /* deux dossiers côte à côte : seulement l'essentiel, comme une étiquette */
-  .dossiers{ grid-template-columns: 1fr 1fr; max-width: none; gap: 26px 14px; }
-  .dossier{ padding: 17% 7% 7%; }
-  .dossier-dates, .dossier-texte{ display:none; }
-  .dossier-annee{ display:inline; font-size: .62rem; color: rgba(143,70,48,.85); }
-  .dossier-tete{ margin-bottom: 0; }
-  .dossier-type{ font-size: .8rem; }
-  .dossier-titre{ font-size: 1.08rem; margin: auto 0; text-wrap: balance; }
-  .dossier-voir{ margin-top: 0; padding-top: 4px; font-size: .56rem; letter-spacing: .05em; text-underline-offset: 2px; }
-  .dossier--mobile{ cursor:pointer; }
-  .dossier--mobile .dossier-voir{ display:inline-block; }
-  .feuille-missions{ display:block; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px dashed rgba(169,85,58,.3); }
-  .feuille-missions p{ margin: 6px 0 0; font-size: .82rem; line-height: 1.5; color: var(--ink); }
-}
