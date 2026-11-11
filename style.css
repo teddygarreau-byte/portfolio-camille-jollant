@@ -759,6 +759,9 @@ body.feuille-ouverte{ overflow:hidden; }
    VERSION TÉLÉPHONE : plus compacte, moins de défilement
    ========================================================= */
 @media (max-width: 640px){
+  /* papier peint fleuri légèrement dézoomé */
+  body::before{ background-size: 790px 227px; }
+
   /* moins de fleurs entre la feuille d'accueil et le titre 1 */
   .hero-sheet{ bottom: 10%; }
   #profil.section{ padding-top: 24px; }

@@ -457,17 +457,33 @@
   if (board && !reduceMotion){
     var feuilles = board.querySelectorAll(".profil-photo, .profil-text, .profil-langues, .formation-col, .skills-card");
     var dernierY = window.scrollY, ventPrevu = false, devant = false;
+    /* Sur téléphone, les papiers sont empilés sur un tableau très haut : chacun
+       reçoit son coup de vent au moment où il arrive à l'écran. Sur ordinateur,
+       tout le tableau est visible : les papiers bougent ensemble. */
+    var empile = window.matchMedia("(max-width: 980px)");
+    var souffle = function(f){ f.classList.remove("vent"); void f.offsetWidth; f.classList.add("vent"); };
     var souffler = function(){
       var y = window.scrollY, dy = y - dernierY; dernierY = y;
-      var r = board.getBoundingClientRect(), vh = window.innerHeight;
+      var vh = window.innerHeight;
+      if (empile.matches){
+        feuilles.forEach(function(f){
+          var r = f.getBoundingClientRect();
+          var visible = r.top < vh * 0.78 && r.bottom > vh * 0.22;
+          if (!visible){ f._devant = false; return; }
+          if (f._devant || Math.abs(dy) < 2) return;
+          f._devant = true;
+          f.style.setProperty("--sens", dy > 0 ? 1 : -1);
+          souffle(f);
+        });
+        return;
+      }
+      var r = board.getBoundingClientRect();
       var visible = r.top < vh * 0.55 && r.bottom > vh * 0.35;   // tableau bien à l'écran
       if (!visible){ devant = false; return; }
       if (devant || Math.abs(dy) < 2) return;
       devant = true;
       board.style.setProperty("--sens", dy > 0 ? 1 : -1);
-      feuilles.forEach(function(f){
-        f.classList.remove("vent"); void f.offsetWidth; f.classList.add("vent");
-      });
+      feuilles.forEach(function(f){ f.style.removeProperty("--sens"); souffle(f); });
     };
     window.addEventListener("scroll", function(){
       if (ventPrevu) return; ventPrevu = true;
