@@ -376,28 +376,31 @@
     setTimeout(revealFallback, 1500);
   }
 
-  /* ---------- Tableau en liège : un seul coup de vent ----------
-     La première fois qu'on fait défiler la page avec le tableau bien visible,
-     les papiers oscillent un peu autour de leur punaise, dans le sens du
-     défilement, puis se stabilisent. Ensuite, plus rien. */
+  /* ---------- Tableau en liège : un coup de vent à chaque arrivée ----------
+     Chaque fois qu'on arrive au niveau du tableau en faisant défiler la page,
+     les papiers oscillent une fois autour de leur punaise, dans le sens du
+     défilement, puis se stabilisent. Rien d'autre tant qu'on reste devant :
+     il faut quitter le tableau puis y revenir pour une nouvelle rafale. */
   var board = document.querySelector(".profil-board");
   if (board && !reduceMotion){
     var feuilles = board.querySelectorAll(".profil-photo, .profil-text, .profil-langues, .formation-col, .skills-card");
-    var dernierY = window.scrollY, ventPrevu = false;
-    var surScroll = function(){
-      if (ventPrevu) return; ventPrevu = true;
-      requestAnimationFrame(function(){ ventPrevu = false; souffler(); });
-    };
+    var dernierY = window.scrollY, ventPrevu = false, devant = false;
     var souffler = function(){
       var y = window.scrollY, dy = y - dernierY; dernierY = y;
-      if (Math.abs(dy) < 2) return;
       var r = board.getBoundingClientRect(), vh = window.innerHeight;
-      if (r.top > vh * 0.55 || r.bottom < vh * 0.35) return;   // tableau bien à l'écran
-      window.removeEventListener("scroll", surScroll);          // une seule fois
+      var visible = r.top < vh * 0.55 && r.bottom > vh * 0.35;   // tableau bien à l'écran
+      if (!visible){ devant = false; return; }
+      if (devant || Math.abs(dy) < 2) return;
+      devant = true;
       board.style.setProperty("--sens", dy > 0 ? 1 : -1);
-      feuilles.forEach(function(f){ f.classList.add("vent"); });
+      feuilles.forEach(function(f){
+        f.classList.remove("vent"); void f.offsetWidth; f.classList.add("vent");
+      });
     };
-    window.addEventListener("scroll", surScroll, { passive: true });
+    window.addEventListener("scroll", function(){
+      if (ventPrevu) return; ventPrevu = true;
+      requestAnimationFrame(function(){ ventPrevu = false; souffler(); });
+    }, { passive: true });
   }
 
 })();
