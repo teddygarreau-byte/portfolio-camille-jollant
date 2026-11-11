@@ -166,7 +166,8 @@ h1,h2,h3,h4{ margin:0; font-weight:400; text-wrap: balance; }
   .nav-toggle{ display:flex; }
   .main-nav{
     position:fixed; inset:0; z-index:55; flex-direction:column; justify-content:center; gap:30px;
-    background: var(--kraft) var(--tx-fibre); background-blend-mode: multiply;
+    /* même papier clair que la feuille d'accueil */
+    background: url("assets/img/texture-papier-clair.jpg") 0 0 / 400px, var(--paper-hero); background-blend-mode: multiply;
     transform: translateX(100%); transition: transform var(--dur-med) var(--ease);
   }
   .main-nav.open{ transform: translateX(0); }
