@@ -13,7 +13,16 @@
      image, et la barre de progression bouge en transform (sans relayout). */
   var seuilHero = 0, hauteurDoc = 1, enAttente = false;
   function mesurer(){
-    seuilHero = heroEl ? heroEl.offsetHeight - header.offsetHeight : 12;
+    /* le fond flouté apparaît dès que les fleurs passent sous l'en-tête :
+       c'est-à-dire au début de la déchirure de la feuille d'accueil */
+    var feuilleHero = document.querySelector(".hero-sheet");
+    if (feuilleHero){
+      /* offsetTop/offsetHeight : insensibles à l'animation d'arrivée de la feuille */
+      var basFeuille = heroEl.offsetTop + feuilleHero.offsetTop + feuilleHero.offsetHeight;
+      seuilHero = Math.max(12, basFeuille - 100 - header.offsetHeight);
+    } else {
+      seuilHero = heroEl ? heroEl.offsetHeight - header.offsetHeight : 12;
+    }
     hauteurDoc = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
   }
   function majScroll(){
