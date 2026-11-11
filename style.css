@@ -72,7 +72,8 @@ body{
    plutôt que background-attachment:fixed, ignoré sur iPhone. */
 body::before{
   content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
-  background: var(--cream) url("assets/img/papier-peint-tulipes.jpg") center / cover no-repeat;
+  /* tuile raccordée dans les deux sens : motif dézoomé, net sur écran Retina */
+  background: var(--cream) url("assets/img/papier-peint-tulipes-tuile.jpg") 0 0 / 1029px 296px repeat;
 }
 img{ display:block; max-width:100%; height:auto; }
 a{ color: inherit; text-decoration: none; }
