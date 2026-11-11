@@ -754,6 +754,10 @@ body.feuille-ouverte{ overflow:hidden; }
    VERSION TÉLÉPHONE : plus compacte, moins de défilement
    ========================================================= */
 @media (max-width: 640px){
+  /* moins de fleurs entre la feuille d'accueil et le titre 1 */
+  .hero-sheet{ bottom: 10%; }
+  #profil.section{ padding-top: 24px; }
+
   /* papier « Recherche un CDI… » : police réduite */
   /* présentation : de « Recherche un CDI… » à « …de bout en bout. » visible d'un
      seul écran (texte plus large, lignes plus serrées, police un peu réduite) */
