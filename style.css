@@ -787,7 +787,7 @@ body.feuille-ouverte{ overflow:hidden; }
 
   /* « Discutons » : même carte qu'avant, en rectangle couché (plus large que
      haut) — disposition en deux colonnes comme sur ordinateur, textes réduits */
-  .contact-inner{ grid-template-columns: 1fr 1.08fr; gap: 0 14px; padding: 26px 16px 16px; align-items:center; }
+  .contact-inner{ grid-template-columns: 1fr 1.08fr; gap: 0 14px; padding: 26px 20px 16px 24px; align-items:center; }
   .contact-inner h2{ font-size: 1.75rem; margin-bottom: 8px; }
   .contact-lede{ font-size: .74rem; line-height: 1.5; }
   .contact-links{ border-top:none; border-left: 1px solid rgba(169,85,58,.3); padding: 30px 0 0 12px; gap: 10px; }
