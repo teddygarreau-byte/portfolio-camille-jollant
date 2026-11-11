@@ -343,12 +343,6 @@
   /* ---------- Reveal-on-scroll ---------- */
   var revealEls = document.querySelectorAll(".reveal");
 
-  /* Fin de l'entrée : on libère la carte graphique et on rend les survols vifs */
-  document.addEventListener("transitionend", function(e){
-    var el = e.target;
-    if (e.propertyName === "transform" && el.classList && el.classList.contains("in-view") && el.classList.contains("reveal"))
-      el.classList.add("revealed");
-  });
 
   if (reduceMotion || !("IntersectionObserver" in window)){
     revealEls.forEach(function(el){ el.classList.add("in-view"); });
