@@ -335,13 +335,20 @@
     document.querySelectorAll(sel).forEach(function(group){
       Array.prototype.forEach.call(group.children, function(child, i){
         child.classList.add("reveal");
-        child.style.transitionDelay = Math.min(i * 70, 420) + "ms";
+        child.style.setProperty("--d", Math.min(i * 60, 360) + "ms");
       });
     });
   });
 
   /* ---------- Reveal-on-scroll ---------- */
   var revealEls = document.querySelectorAll(".reveal");
+
+  /* Fin de l'entrée : on libère la carte graphique et on rend les survols vifs */
+  document.addEventListener("transitionend", function(e){
+    var el = e.target;
+    if (e.propertyName === "transform" && el.classList && el.classList.contains("in-view") && el.classList.contains("reveal"))
+      el.classList.add("revealed");
+  });
 
   if (reduceMotion || !("IntersectionObserver" in window)){
     revealEls.forEach(function(el){ el.classList.add("in-view"); });
@@ -391,7 +398,7 @@
       feuilles.forEach(function(f){
         f.classList.remove("vent"); void f.offsetWidth; f.classList.add("vent");
       });
-      setTimeout(function(){ calme = true; }, 1700);
+      setTimeout(function(){ calme = true; }, 2100);
     }, { passive: true });
   }
 
