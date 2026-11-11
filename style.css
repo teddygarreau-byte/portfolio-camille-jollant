@@ -130,7 +130,7 @@ h1,h2,h3,h4{ margin:0; font-weight:400; text-wrap: balance; }
 .polaroid img, .polaroid video{ display:block; width:100%; background:#EFE7D8; }
 
 /* ---------- Progression + en-tête ---------- */
-.progress-bar{ position:fixed; top:0; left:0; height:3px; width:0%; background: var(--rust); z-index:100; transition: width 80ms linear; }
+.progress-bar{ position:fixed; top:0; left:0; height:3px; width:100%; background: var(--rust); z-index:100; transform: scaleX(0); transform-origin: 0 50%; will-change: transform; }
 
 .site-header{
   position:fixed; top:0; left:0; right:0; z-index:50;
@@ -567,14 +567,14 @@ p.gallery-caption, p.media-caption, .polaroid figcaption, .iana-media figcaption
 /* le timbre, en haut à droite */
 /* Timbre collé en haut à droite de la carte */
 .stamp{
-  position:absolute; top:18px; right:22px; width:78px; height:auto;
+  position:absolute; top:18px; right:22px; width:66px; height:auto;
   transform: rotate(4deg);
   filter: drop-shadow(0 1px 1.5px rgba(60,38,14,.3)) drop-shadow(0 5px 9px rgba(60,38,14,.14));
 }
 @media (max-width: 700px){
   .contact-inner{ grid-template-columns: 1fr; gap: 28px; padding: 32px 26px 30px; }
   .contact-links{ border-left:none; border-top: 1px solid rgba(169,85,58,.3); padding: 24px 0 0; }
-  .stamp{ width:60px; }
+  .stamp{ width:52px; }
 }
 
 /* Signature en bas de la carte postale (ancien pied de page) */
@@ -667,3 +667,27 @@ body.lightbox-open{ overflow:hidden; }
 .profil-board .pin-right{ transform-origin: calc(100% - 44px) 0; }
 
 
+
+/* Titres de section : le ruban (avec son titre) vient se coller sur la page.
+   Il arrive « tenu en l'air » (plus grand, plus incliné), se plaque avec un
+   léger écrasement, puis un reflet glisse dessus comme un doigt qui le lisse.
+   La classe js-anim n'est posée que si le script tourne : sans lui, les
+   titres restent simplement visibles. */
+.section-head::after{
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:0;
+  background: linear-gradient(100deg, transparent 0 35%, rgba(255,255,255,.42) 50%, transparent 65% 100%) 0 0 / 250% 100% no-repeat;
+}
+html.js-anim .section-head.reveal:not(.in-view){ opacity:0; transform: translate(-20px,-34px) rotate(-6deg) scale(1.15); }
+html.js-anim .section-head.reveal.in-view{ animation: scotcher .8s var(--ease-out) both; }
+html.js-anim .section-head.reveal.in-view::after{ animation: lisser .7s ease-out .42s both; }
+@keyframes scotcher{
+  0%  { opacity:0; transform: translate(-20px,-34px) rotate(-6deg) scale(1.15); }
+  45% { opacity:1; transform: translate(0,3px) rotate(-1.1deg) scale(1.015); }
+  62% { transform: translate(0,0) rotate(-1.5deg) scale(.99, 1.015); }
+  80% { transform: rotate(-1.35deg) scale(1.004); }
+  100%{ opacity:1; transform: rotate(-1.4deg) scale(1); }
+}
+@keyframes lisser{
+  0%  { opacity:1; background-position: 100% 0; }
+  100%{ opacity:0; background-position: 0 0; }
+}

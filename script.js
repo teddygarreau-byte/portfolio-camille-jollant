@@ -2,38 +2,35 @@
   "use strict";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion && "IntersectionObserver" in window) document.documentElement.classList.add("js-anim");
 
   /* ---------- Header state on scroll + progress bar ---------- */
   var header = document.getElementById("siteHeader");
   var progressBar = document.getElementById("progressBar");
   var heroEl = document.getElementById("hero");
 
-  var heroBg = document.querySelector(".hero-bg");
-  var ticking = false;
-
-  function onScroll(){
-    var heroThreshold = heroEl ? heroEl.offsetHeight - header.offsetHeight : 12;
-    var scrolled = window.scrollY > heroThreshold;
-    header.classList.toggle("scrolled", scrolled);
-
-    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    var pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
-    progressBar.style.width = pct + "%";
-
-    /* Parallaxe : la photo du hero remonte moins vite que la page */
-    if (heroBg && !reduceMotion && !ticking){
-      ticking = true;
-      requestAnimationFrame(function(){
-        var y = window.scrollY;
-        if (y < window.innerHeight * 1.2){
-          heroBg.style.transform = "scale(1.08) translate3d(0," + (y * 0.22) + "px,0)";
-        }
-        ticking = false;
-      });
-    }
+  /* Hauteurs mises en cache (recalculées au redimensionnement) : aucune
+     mesure de mise en page pendant le défilement. Une seule mise à jour par
+     image, et la barre de progression bouge en transform (sans relayout). */
+  var seuilHero = 0, hauteurDoc = 1, enAttente = false;
+  function mesurer(){
+    seuilHero = heroEl ? heroEl.offsetHeight - header.offsetHeight : 12;
+    hauteurDoc = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
   }
+  function majScroll(){
+    enAttente = false;
+    var y = window.scrollY;
+    header.classList.toggle("scrolled", y > seuilHero);
+    progressBar.style.transform = "scaleX(" + Math.min(1, y / hauteurDoc).toFixed(4) + ")";
+  }
+  function onScroll(){
+    if (!enAttente){ enAttente = true; requestAnimationFrame(majScroll); }
+  }
+  mesurer();
   window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+  window.addEventListener("resize", function(){ mesurer(); onScroll(); });
+  window.addEventListener("load", function(){ mesurer(); onScroll(); });
+  majScroll();
 
   /* ---------- Mobile nav toggle ---------- */
   var navToggle = document.getElementById("navToggle");
@@ -354,22 +351,28 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    }, { threshold: 0, rootMargin: "0px 0px -24px 0px" });
 
     revealEls.forEach(function(el){ revealObserver.observe(el); });
 
     /* Filet de sécurité : si l'observateur ne se déclenche pas (onglet en
        arrière-plan au chargement, rendu suspendu…), on révèle au scroll ce
        qui est entré dans la fenêtre — jamais de contenu invisible. */
+    var restants = Array.prototype.slice.call(revealEls), fallbackPrevu = false;
     var revealFallback = function(){
+      fallbackPrevu = false;
       var vh = window.innerHeight;
-      revealEls.forEach(function(el){
-        if (el.classList.contains("in-view")) return;
-        var top = el.getBoundingClientRect().top;
-        if (top < vh * 0.92) el.classList.add("in-view");
+      restants = restants.filter(function(el){
+        if (el.classList.contains("in-view")) return false;
+        if (el.getBoundingClientRect().top < vh * 0.97){ el.classList.add("in-view"); return false; }
+        return true;
       });
+      if (!restants.length) window.removeEventListener("scroll", planifierFallback);
     };
-    window.addEventListener("scroll", revealFallback, { passive: true });
+    var planifierFallback = function(){
+      if (!fallbackPrevu){ fallbackPrevu = true; requestAnimationFrame(revealFallback); }
+    };
+    window.addEventListener("scroll", planifierFallback, { passive: true });
     window.addEventListener("load", revealFallback);
     setTimeout(revealFallback, 1500);
   }
@@ -382,7 +385,12 @@
   if (board && !reduceMotion){
     var feuilles = board.querySelectorAll(".profil-photo, .profil-text, .profil-langues, .formation-col, .skills-card");
     var calme = true, dernierY = window.scrollY;
+    var ventPrevu = false;
     window.addEventListener("scroll", function(){
+      if (ventPrevu) return; ventPrevu = true;
+      requestAnimationFrame(function(){ ventPrevu = false; souffler(); });
+    }, { passive: true });
+    function souffler(){
       var y = window.scrollY, dy = y - dernierY; dernierY = y;
       if (!calme || Math.abs(dy) < 2) return;
       var r = board.getBoundingClientRect();
@@ -393,7 +401,7 @@
         f.classList.remove("vent"); void f.offsetWidth; f.classList.add("vent");
       });
       setTimeout(function(){ calme = true; }, 2100);
-    }, { passive: true });
+    }
   }
 
 })();
